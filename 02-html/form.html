@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 태그 연습</title>
+</head>
+<body>
+    <h1>폼 태그 종류에 대하여 공부</h1>
+
+    <!-- form tag : 사용자로부터 입력받는 요소(input, select, textarea를 감싸는 요소)
+        form tag의 attribute action, method가 있는데, 서버와 연관되어있음
+    -->
+    <form>
+        <!-- 모든 input의 타입에는 name이라는 속성을 가질 수 있음 -->
+        <label for="user_text">텍스트</label>
+        <!-- label 태그는 웹접근성에 적합함 -->
+        <input type="text" id="user_text"><br>
+
+        <input type="text" name="" id="" disabled>
+        <!-- disabled 바꿀 수 없음 -->
+       
+        <label for="user_email">이메일</label>
+        <input type="email" id="user_email" placeholder="이메일을 입력해주세요"><br>
+
+        <textarea cols="30" rows="10" placeholder="문의사항을 입력해주세요"></textarea><br>
+        
+        <input type="color" name="" id="">
+        <input type="range" name="" id="">
+        <input type="file" name="" id="">
+        <input type="number" name="" id="">
+        <input type="datetime-local" name="" id=""><br>
+
+
+        <!-- checkbox, radio 같은 name 속성을 부여해 카테고리화 하고 value로 특정짓는다 -->
+        <h5>당신의 취미는</h5>
+        <input type="checkbox" name="hobby" value="football">축구
+        <input type="checkbox" name="hobby" value="basketball">농구
+        <input type="checkbox" name="hobby" value="movie">영화보기
+        <input type="checkbox" name="hobby" value="run" checked>달리기
+
+        <h5>당신의 성별은?</h5>
+        <input type="radio" name="gender" value="male" id="radio-male" checked>
+        <label for="radio-male">남자</label>
+
+
+        <input type="radio" name="gender" value="female" id="radio-female">
+        <label for="radio-female">여자</label>
+        <!-- label태그로 블록의 텍스트를 만들 수 있다 
+            checked는 기본 디폴트 속성으로 넣을 수 있다
+        -->
+
+        <br>
+        <input type="button" value="버튼">
+        <button type="button">버튼</button><br>
+
+        <input type="submit" value="제출">
+        <button type="submit">제출</button><br> 
+
+        <select name="자신있는 언어">
+            <optgroup label="language">
+                <option value="java">Java</option>
+                <option value="js">JavaScript</option>
+                <option value="python" selected>Python</option>
+            </optgroup>
+        </select>
+    </form>
+</body>
+</html>
