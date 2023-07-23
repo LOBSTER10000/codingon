@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .body {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            position: relative;
+            z-index: -1;
+        }
+
+        .eye-white {
+            background : white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            position:relative;
+            top: 20px;
+            left : 30px;
+        }
+
+        .eye-black { 
+            background : black;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            position : relative;
+            top: 10px;
+            
+        }
+
+        .body1 { 
+            background : dodgerblue;
+            left: 30px;
+        }
+
+        .body2 {
+            background : blue;
+            left : 90px;
+            bottom : 40px;
+        }
+
+        .body3 {
+            background: navy;
+            bottom : 140px;
+            left: 130px;
+        }
+
+        .body4 {
+            background-color: aqua;
+            bottom : 240px;
+            left: 200px;
+        }
+
+        .body5 {
+            background-color:cornflowerblue;
+            bottom : 350px;
+            left: 280px;
+            z-index: 5;
+        }
+
+        img {
+            position: relative;
+            bottom: 580px;
+            left: 0px;
+        }
+
+
+
+
+        
+    </style>
+    <title>Css 실습</title>
+</head>
+<body>
+    <div class="body body1">
+        <div class="eye-white">
+            <div class="eye-black"></div>
+        </div>
+    </div>
+    <div class="body body2"></div>
+    <div class="body body3"></div>
+    <div class="body body4"></div>
+    <div class="body body5"></div>
+    <div class="body body6"></div>
+
+    <img class="grass" src="./img/grass.png" alt="잔디">
+</body>
+</html>
