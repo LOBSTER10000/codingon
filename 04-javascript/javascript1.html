@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            let button = document.querySelector("#btn2");
+            button.addEventListener("click", function(e){
+            confirm("나타나주시나");
+             });
+        });
+
+        $(function(){
+            $("#btn").click(function(e){
+                confirm("나타나라");
+            });
+        });
+     </script>
+</head>
+<body>
+    <div>
+        <button id="btn">클릭하세요</button>
+        <button id="btn2">클릭하세용</button>
+    </div>
+  
+
+   
+</body>
+</html>
