@@ -1,0 +1,118 @@
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: cyan;
+    position: relative;
+
+    /* animation-name : my-anime;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+    animation-timing-function: linear; */
+   
+}
+
+.bounce-ball1 {
+    left: 100px;
+    top: 0;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: gold;
+    position: relative;
+
+    /* animation: my-ball 10s 6 linear; */
+    
+}
+
+
+.bounce-ball2 {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    animation-name: bounce2;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+}
+
+
+@keyframes bounce2 {
+    from, to {
+        bottom : 0px;
+        animation-timing-function :ease-out;
+        /* 0px에서 정상속도로 시작 -> 속도 줄이면서 300px됨 */
+    }
+
+    50% {
+        bottom: 300px;
+        animation-timing-function: ease-in;
+
+        /* 300px에서 천천히 시작되어 -> 0으로 가면서 정상속도가 됨 */
+    }
+}
+  /* 
+    - animation-name : @keyframes 애니메이션 이름 지정
+       -시작: from or 0%;
+       -중간: 0~100%;
+       -끝 : to or 100%;
+       
+    - animation-duration: 한 사이클의 애니메이션이 얼마에 걸쳐 일어날지 결정 (단위: s)
+    - animation-delay: 요소(element)가 로드된 후, 언제 애니메이션을 시작할지 결정 (단위: s)
+    - animation-iteration-count: 애니메이션 반복 횟수 (default: 1, infinite: 무한 반복)
+    - animation-timing-function: 중간 상태들의 전환을 어떤 시간 간격으로 진행할지 지정
+        - linear, ease, ease-in, ease-out, ease-in-out 등
+    - animation-direction: 애니메이션 종류 후 반복될 때 진행방향 지정
+    -   normal, reverse(반대방향), alternate(반복될때 방향을 바꿈), alternate-reverse(시작을 반대부터 시작) 
+  
+  */
+
+/* keyframes 다음 이름을 부여(개발자 맘대로 짓기) */
+@keyframes my-anime{
+    0% {
+        left : 100px;
+    }
+
+    25% {
+        left : 200px;
+    }
+
+    50% {
+        left : 400px;
+    }
+
+    75% {
+        left : 200px;
+    }
+
+    100% {
+        left : 0px;
+    }
+}
+
+
+@keyframes my-ball {
+
+    25% {
+        left: 90%;
+        top: 0px;
+    }
+
+    50% {
+        left: 90%;
+        top: 700px;
+    }
+
+    75% {
+        left: 100px;
+        top: 700px;
+    }
+
+   
+    100% {
+        left: 100px;
+        top: 0px;
+    }
+    
+}

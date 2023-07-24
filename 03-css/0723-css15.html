@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css 실습</title>
+    <style>
+        .ball {
+            width: 100px;
+            height: 100px;
+         
+            position: relative;
+            background-color: orange;
+            border-radius: 50%;
+            animation: ball-anime 3s 6 linear;
+        }
+
+        @keyframes ball-anime {
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+            
+            25% {
+                left : 90%;
+                top: 0px;
+            }
+
+            50% {
+                left : 90%;
+                top: 800px;
+            }
+
+            75% {
+                left: 0px;
+                top: 800px;
+            }
+
+            100% {
+                left: 0px;
+                top: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ball"></div>
+</body>
+</html>
