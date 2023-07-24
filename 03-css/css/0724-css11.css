@@ -1,0 +1,51 @@
+ .d-inline1 {
+    display: inline;
+    background-color: blue;
+ }
+
+ .d-inline2 {
+    display: inline;
+    background-color: red;
+ }
+
+ .d-block1 {
+    display: block;
+    background: aqua;
+    width: 500px;
+ }
+
+ .d-block2 {
+    display: block;
+    background: darkblue;
+    width: 50%;
+ }
+
+ .d-inline-block1 {
+    display: inline-block;
+    background: yellow;
+    width: 50%;
+ }
+
+ .d-inline-block2 {
+    display: inline-block;
+    background: green;
+    width: 40%;
+    height: 300px;
+    /* 상 우 하 좌 */
+    margin: 20px 30px 40px 20px;
+    /*  margin : 20px 30px ; (좌 우) */
+ }
+
+ .d-none {
+    display: none;
+    background: green;
+    width: 100px;
+    height: 100px;
+ }
+
+ .box {
+    background-color: violet;
+    width: 100px;
+    height: 100px;
+    visibility: visible;
+ }
