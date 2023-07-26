@@ -64,3 +64,168 @@ function myHello() {
 const myHello2 = function () {
   console.log('hello~~~2');
 };
+
+// const age = parseInt(prompt('나이를 입력하세요'));
+
+// if (age >= 20) {
+//   console.log('성인');
+// } else if (age >= 17) {
+//   console.log('고등학생');
+// } else if (age >= 14) {
+//   console.log('중학생');
+// } else if (age >= 8) {
+//   console.log('초등학생');
+// } else if (age >= 0) {
+//   console.log('유아');
+// }
+
+// const number = parseInt(prompt('숫자의 범위를 입력하세요'));
+// if (number > 100 || number < 0) {
+//   console.log('입력값이 잘못되었습니다. 숫자의 범위는 0~100');
+// } else if (number >= 90) {
+//   console.log('A');
+// } else if (number >= 80) {
+//   console.log('B');
+// } else if (number >= 70) {
+//   console.log('C');
+// } else if (number >= 60) {
+//   console.log('D');
+// } else if (number >= 50) {
+//   console.log('F');
+// }
+
+// //중첩 if문
+// let userId = 'user01';
+// let userPw = '1234';
+
+// function loginUser() {
+//   let inputId = prompt('아이디 입력');
+//   let inputPw = prompt('비밀번호 입력');
+//   if (inputId === userId) {
+//     if (inputPw === userPw) {
+//       return '로그인 성공';
+//     } else {
+//       return '비번 오류! 로그인 실패';
+//     }
+//   } else if (inputId === '') {
+//     return '아이디 입력 안했음';
+//   } else {
+//     alert('아이디 오류! 로그인 실패!');
+//     return '아이디 오류! 로그인 실패!';
+//   }
+// }
+
+// console.log(loginUser());
+
+//switch문
+let score = parseInt(prompt('총점을 입력하세요'));
+switch (score / 10) {
+  case 10:
+    console.log('A+');
+    break;
+  case 9:
+    console.log('A');
+    break;
+  case 8:
+    console.log('B');
+    break;
+  case 7:
+    console.log('C');
+    break;
+  case 6:
+    console.log('D');
+    break;
+  default:
+    console.log('F');
+    break;
+}
+
+console.log(score);
+
+let now = new Date().getHours();
+
+now >= 12 ? console.log('오후') : console.log('오전');
+
+// 반복문
+
+// for문
+for (let i = 0; i < 10; i++) {
+  // i가 0 ~ 9 총 10번 반복
+  console.log('안녕', i);
+}
+console.log('--------');
+
+// i += 2 // i = i + 2
+for (let i = 0; i < 10; i += 2) {
+  // i가 0 ~ 9 총 10번 반복
+  console.log('안녕', i);
+}
+console.log('--------');
+
+// 1 ~ 5 출력
+for (let i = 1; i <= 5; i++) {
+  console.log(i);
+}
+console.log('--------');
+
+// 5 ~ 1 출력
+for (let i = 5; i >= 1; i--) {
+  console.log(i);
+}
+console.log('--------');
+
+//배열 ,for문
+
+const fruits = ['사과', '배', '포도', '망고'];
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
+
+//-------------------------
+
+// 1~20중에서 짝수일때의 합을 구하기
+let sum3 = 0;
+for (let i = 1; i < 21; i++) {
+  if (i % 2 == 0) {
+    sum3 += i;
+  }
+}
+console.log(sum3);
+
+// while 문
+
+let run = 0;
+while (run < 10) {
+  console.log('안녕', run);
+  run++;
+}
+
+//
+
+let sum = 0;
+for (let i = 0; i < 101; i++) {
+  if (i % 2 == 0 || i % 5 == 0) {
+    sum += i;
+  }
+}
+console.log(sum);
+
+for (let i = 0; i < 10001; i++) {
+  if (i % 13 == 0 && i % 2 == 1) {
+    console.log(i);
+  }
+}
+
+let numbers = parseInt(prompt('숫자를 입력하세요'));
+
+for (let i = 0; i < numbers; i++) {
+  if (i % 13 == 0 && i % 2 == 1) {
+    console.log(i);
+  }
+}
+
+for (let i = 2; i < 10; i++) {
+  for (let j = 1; j < 10; j++) {
+    console.log(i + ' x ' + j + ' = ' + i * j);
+  }
+}
