@@ -28,10 +28,13 @@ function multiFly(a, b) {
   return c;
 }
 
+console.log(multiFly(3, 7)); //21
+console.log(multiFly(2, 4)); // 8
+
 function square(d) {
   let e = d * d;
   return e;
 }
 
-console.log(multiFly(3, 4));
-console.log(square(4));
+console.log(square(8)); //64
+console.log(square(4)); //16
