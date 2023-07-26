@@ -103,17 +103,3 @@ console.log(num2); // 11
 // +=, -= 연산자를 더 자주 씀!
 console.log((num += 1));
 console.log((num2 -= 1));
-
-const lobster = parseInt(prompt('숫자입력'));
-
-for (i = 1; i <= lobster; i++) {
-  if (i % 13 == 0 && i % 2 == 1) {
-    console.log(i);
-  }
-}
-
-for (let i = 2; i < 10; i++) {
-  for (let j = 1; j < 10; j++) {
-    console.log();
-  }
-}
