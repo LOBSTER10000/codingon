@@ -210,12 +210,14 @@ for (let i = 0; i < 101; i++) {
 }
 console.log(sum);
 
+//
 for (let i = 0; i < 10001; i++) {
   if (i % 13 == 0 && i % 2 == 1) {
     console.log(i);
   }
 }
 
+//
 let numbers = parseInt(prompt('숫자를 입력하세요'));
 
 for (let i = 0; i < numbers; i++) {
@@ -224,6 +226,7 @@ for (let i = 0; i < numbers; i++) {
   }
 }
 
+//
 for (let i = 2; i < 10; i++) {
   for (let j = 1; j < 10; j++) {
     console.log(i + ' x ' + j + ' = ' + i * j);
