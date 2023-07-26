@@ -53,3 +53,10 @@ console.log(temp);
 // 5. undefined 
 // 값도 없고 타입도 지정되지 않음
 let x; // -> undefined 초기값
+
+// Q2. 다음 코드 실행시 q2 변수는 어떤 값이 될까?
+let q2 = 10;
+q2 = q2 + 5;
+q2 = q2 - 2;
+
+console.log(q2);
