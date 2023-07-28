@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습3</title>
+  </head>
+  <body>
+    <h1>방명록입니다</h1>
+    <span>작성자</span><input id="yourName" type="text" /><br />
+    <span>내용</span><textarea id="yourContent" cols="30" rows="10"></textarea
+    ><br />
+
+    <button type="submit" id="write">작성</button>
+    <button type="button" id="delete">칸 줄이기</button>
+
+    <table style="border: 1px solid black; width: 1000px" id="table">
+      <tr>
+        <th style="width: 250px">번호</th>
+        <th style="width: 250px">작성자</th>
+        <th style="width: 250px">내용</th>
+        <th style="width: 250px">작성일</th>
+      </tr>
+    </table>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var names = document.querySelector('#yourName');
+        var contents = document.querySelector('#yourContent');
+        var writes = document.querySelector('#write');
+        var deletes = document.querySelector('#delete');
+        var tables = document.querySelector('#table');
+        var rowNum = 1;
+        writes.addEventListener('click', function (e) {
+          var times = new Date();
+          var times2 = `${times.getMonth()}:${times.getDate()}:${times.getHours()}:${times.getMinutes()}:${times.getSeconds()}`;
+
+          var insertRow = tables.insertRow();
+          insertRow.insertCell().innerHTML = `<div style="text-align : center; border: 1px solid black; width:250px;">${rowNum++}</div>`;
+          insertRow.insertCell().innerHTML = `<div style="text-align : center; border: 1px solid black; width:250px;">${names.value}</div>`;
+          insertRow.insertCell().innerHTML = `<div style="text-align : center; border: 1px solid black; width:250px; overflow: hidden; text-overflow:ellipsis; white-space:nowrap;">${contents.value}</div>`;
+          insertRow.insertCell().innerHTML = `<div style="text-align:center; border: 1px solid black; width: 250px;">${times2}</div>`;
+        });
+
+        deletes.addEventListener('click', function (e) {
+          var deleteRow = tables.deleteRow(-1);
+        });
+      });
+    </script>
+  </body>
+</html>

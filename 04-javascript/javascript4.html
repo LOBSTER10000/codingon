@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>계산기</title>
+  </head>
+  <body>
+    <h1>계산기</h1>
+    <span>값1:</span><input type="text" id="t1" /><br />
+    <span>값2:</span><input type="text" id="t2" /><br />
+    <span>연산자:</span><input type="text" id="t3" /><br />
+    <span>결과값:</span><input type="text" id="t4" /><br />
+
+    <button type="input" id="sum">계산하기</button>
+    <button type="button" id="reset">리셋하기</button>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var t1 = document.getElementById('t1');
+        var t2 = document.getElementById('t2');
+        var t3 = document.getElementById('t3');
+        var t4 = document.getElementById('t4');
+        var sum = document.getElementById('sum');
+        var reset = document.getElementById('reset');
+
+        sum.addEventListener('click', function (e) {
+          var t1Value = parseInt(t1.value);
+          var t2Value = parseInt(t2.value);
+
+          if (t3.value === '+') {
+            t4.value = t1Value + t2Value;
+          } else if (t3.value === '-') {
+            t4.value = t1Value - t2Value;
+          } else if (t3.value === '*') {
+            t4.value = t1Value * t2Value;
+          } else if (t3.value === '/') {
+            t4.value = t1Value / t2Value;
+          } else if (t3.value === '%') {
+            t4.value = t1Value % t2Value;
+          } else if (t3.value === '**') {
+            t4.value = t1Value ** t2Value;
+          } else {
+            t4.value = '연산자를 잘못적었습니다.';
+          }
+        });
+
+        reset.addEventListener('click', function (e) {
+          t1.value = '';
+          t2.value = '';
+          t3.value = '';
+          t4.value = '';
+        });
+      });
+    </script>
+  </body>
+</html>
