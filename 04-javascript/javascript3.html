@@ -8,19 +8,18 @@
   <br>
     <h1>방명록입니다</h1>
     <span>작성자</span><input type="text" id="yourName" /><br />
-    <span>내용</span
-    ><input type="text" id="yourContent" style="width: 100%" /><br />
+    <span>내용</span>
+    <textarea id="yourContent" cols="30" rows="10"></textarea><br />
     <input type="submit" id="buttons"><br />
-
+    <button type="button" id="reset">행 삭제</button>
     
-        <table>
+        <table style="border: 2px solid black; width: 1000px;" id="tables">
             <tr>
-                <th>번호</th>
-                <th>작성자</th>
-                <th>내용</th>
-                <th>작성일</th>
+                <th style="border: 2px solid black; width: 250px;">번호</th>
+                <th style="border: 2px solid black; width: 250px;">작성자</th>
+                <th style="border: 2px solid black; width: 250px;">내용</th>
+                <th style="border: 2px solid black; width: 250px;">작성일</th>
             </tr>
-            <tr id="result"></tr>
         </table>
     
     <script>
@@ -28,9 +27,22 @@
             var names = document.querySelector("#yourName");
             var contents = document.querySelector("#yourContent");
             var buttons = document.querySelector("#buttons");
-            var result = document.querySelector("#result");
+            var reset = document.querySelector("#reset");
+            var times = new Date();
+            var tables = document.querySelector('#tables');
+            
+            var rowNum = 1;
             buttons.addEventListener('click', function(e){
-                
+                var insertRow1 = tables.insertRow();
+                insertRow1.insertCell().innerHTML = `<div style="text-align:center; border: 1px solid black; width: 250px;">${rowNum++}</div>`;
+                insertRow1.insertCell().innerHTML = `<div style="text-align:center; border: 1px solid black; width: 250px;">${names.value}</div>`;
+                insertRow1.insertCell().innerHTML = `<div style="text-align:center; border: 1px solid black; width: 250px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${contents.value}</div>`
+                insertRow1.insertCell().innerHTML = `<div style="text-align:center; border: 1px solid black; width: 250px;">${times.getMonth()}/${times.getDate()}:${times.getHours()}:${times.getMinutes()}</div>`
+        
+            });
+
+            reset.addEventListener('click', function(e){
+                var deleteRow1 = tables.deleteRow(-1);
             });
         });
 

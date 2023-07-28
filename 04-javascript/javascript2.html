@@ -23,27 +23,29 @@
         var sum = document.getElementById('sum');
         var reset = document.getElementById('reset');
 
+        //결과값
         sum.addEventListener('click', function (e) {
-          var value1 = parseInt(input1.value);
-          var value2 = parseInt(input2.value);
+          var inputValue1 = parseInt(input1.value);
+          var inputValue2 = parseInt(input2.value);
 
           if (input3.value === '+') {
-            input4.value = value1 + value2;
+            input4.value = inputValue1 + inputValue2;
           } else if (input3.value === '-') {
-            input4.value = value1 - value2;
+            input4.value = inputValue1 - inputValue2;
           } else if (input3.value === '*') {
-            input4.value = value1 * value2;
+            input4.value = inputValue1 * inputValue2;
           } else if (input3.value === '/') {
-            input4.value = value1 / value2;
+            input4.value = inputValue1 / inputValue2;
           } else if (input3.value === '%') {
-            input4.value = value1 % value2;
+            input4.value = inputValue1 % inputValue2;
           } else if (input3.value === '**') {
-            input4.value = value1 ** value2;
+            input4.value = inputValue1 ** inputValue2;
           } else {
             input4.value = '잘못된 연산자를 입력했습니다';
           }
         });
 
+        // 초기화
         reset.addEventListener('click', function (e) {
           input1.value = '';
           input2.value = '';

@@ -88,3 +88,31 @@ if (date3.getDay() == '0' || date3.getDay() == '6') {
 } else {
   console.log('평일');
 }
+
+//Math 객체
+//수학적인 상수와 함수
+
+//속성
+console.log(Math.E); //자연로그
+console.log(Math.Pi); // 파이
+console.log(Math.SQRT2); // 2의 제곱근
+
+//메서드
+console.log(Math.min(100, -2, 0, 5)); // 최소값
+console.log(Math.max(100, -2, 5, 0)); // 최대값
+console.log(parseInt(Math.random() * 45) + 1); // 0~1까지의 랜덤한수
+console.log(Math.round(1.5)); //반올림
+console.log(Math.ceil(1.3)); //올림
+console.log(Math.floor(1.7)); //내림
+
+//로또 만들기
+for (let i = 0; i < 6; i++) {
+  console.log(parseInt(Math.random() * 45) + 1);
+}
+
+// 퀴즈
+// 1~100
+console.log(parseInt(Math.random() * 100) + 1);
+
+//20 ~22
+console.log(parseInt(Math.random() * 3) + 20);
