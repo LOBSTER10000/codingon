@@ -54,8 +54,8 @@
       var button = document.getElementsByTagName('button')[0];
       var h2 = document.getElementsByTagName('h2')[0];
       button.addEventListener('click', function(e){
-        document.body.style.backgroundColor = `rgb(${(Math.random() * 200) + 56},${(Math.random() * 200) + 56},${(Math.random() * 200) + 56})`;
-        h2.style.color = `rgb(${(Math.random() * 200) + 56},${(Math.random() * 200) + 56},${(Math.random() * 200) + 56})`;
+        document.body.style.backgroundColor = `rgb(${Math.random() * 256},${Math.random() * 256},${Math.random() * 256})`;
+        h2.style.color = `rgb(${Math.random() * 256},${Math.random() * 256},${Math.random() * 256})`;
       });
     </script>
   </body>
