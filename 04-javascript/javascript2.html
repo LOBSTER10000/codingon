@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <span>값1:</span><input type="text" id="input1" /><br />
+    <span>값2:</span><input type="text" id="input2" /><br />
+    <span>연산자:</span><input type="text" id="input3" /><br />
+    <span>결과값:</span><input type="text" id="input4" /><br />
+
+    <button type="button" id="sum">계산하기</button>
+    <button type="button" id="reset">초기화하기</button>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var input1 = document.getElementById('input1');
+        var input2 = document.getElementById('input2');
+        var input3 = document.getElementById('input3');
+        var input4 = document.getElementById('input4');
+        var sum = document.getElementById('sum');
+        var reset = document.getElementById('reset');
+
+        sum.addEventListener('click', function (e) {
+          var value1 = parseInt(input1.value);
+          var value2 = parseInt(input2.value);
+
+          if (input3.value === '+') {
+            input4.value = value1 + value2;
+          } else if (input3.value === '-') {
+            input4.value = value1 - value2;
+          } else if (input3.value === '*') {
+            input4.value = value1 * value2;
+          } else if (input3.value === '/') {
+            input4.value = value1 / value2;
+          } else if (input3.value === '%') {
+            input4.value = value1 % value2;
+          } else if (input3.value === '**') {
+            input4.value = value1 ** value2;
+          } else {
+            input4.value = '잘못된 연산자를 입력했습니다';
+          }
+        });
+
+        reset.addEventListener('click', function (e) {
+          input1.value = '';
+          input2.value = '';
+          input3.value = '';
+          input4.value = '';
+        });
+      });
+    </script>
+  </body>
+</html>

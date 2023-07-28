@@ -188,3 +188,12 @@ let filter4 = words.filter(function (e) {
 });
 
 console.log(filter4);
+
+////////////////////////////////
+// for in 반복문
+// 객체의 key를 반복할 수 있는 구문
+
+const me = { name: 'lobster', gender: 'm', hobby: 'run' };
+for (let key in me) {
+  console.log(key, me[key]);
+}
