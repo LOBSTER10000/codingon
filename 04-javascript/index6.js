@@ -217,6 +217,12 @@ for (let i = 0; i < 10001; i++) {
   }
 }
 
+for (let i = 0; i < 10001; i++) {
+  if (i % 13 == 0 && i % 2 == 1) {
+    console.log(i);
+  }
+}
+
 //
 let numbers = parseInt(prompt('숫자를 입력하세요'));
 
