@@ -82,3 +82,109 @@ console.log(strike.join('-'));
 console.log('hello'.split(''));
 console.log('hello'.split('').reverse());
 console.log('hello'.split('').reverse().join(''));
+
+//
+
+let numbers = [1, 2, 3, 4, 5, 6];
+let fruits = ['사과', '바나나', '수박', '포도', '파인애플'];
+
+numbers.forEach(function (number, index, array) {
+  console.log(number, index, array);
+});
+
+for (let a = 0; a < numbers.length; a++) {
+  console.log(a);
+}
+
+for (let alpha of fruits) {
+  console.log(alpha);
+}
+
+fruits.forEach(function (alpha) {
+  console.log(alpha);
+});
+
+numbers.forEach((number, index, array) => {
+  console.log(number, index, array);
+});
+
+fruits.forEach(function (fruits, i, arr) {
+  console.log(fruits, i, arr);
+});
+
+fruits.forEach((fruits, i, arr) => {
+  console.log(fruits, i, arr);
+});
+
+//자바스크립트에서 함수안에 함수가 또 들어갈때 콜백함수라고 표현한다
+// currentValue 반복하고 있는 형제요소
+// index 처리할 인덱스
+// arr : forEach를 호출한 배열
+
+/////////////////////// 배열의 합
+
+let numbers2 = [1, 2, 3, 4, 5, 6];
+var sum1 = 0;
+var sum2 = 0;
+var sum3 = 0;
+
+for (let i = 0; i < numbers2.length; i++) {
+  sum1 += numbers[i];
+}
+
+for (let num of numbers2) {
+  sum2 += num;
+}
+
+numbers.forEach((num) => {
+  sum3 += num;
+});
+
+console.log(sum1, sum2, sum3);
+
+//******배열에서의 기타 메소드 */
+
+const arr = [1, 2, 3, 4, 5];
+
+let arr_filter = arr.filter(function (e) {
+  return e > 3;
+});
+
+console.log(arr_filter);
+
+let val_find = arr.find(function (a) {
+  return a > 2;
+});
+
+console.log(val_find);
+
+let arr_map = arr.map(function (e) {
+  return e + 3;
+});
+
+console.log(arr_map);
+
+//** filter는 해당하는 return값의 정의된 값들을 찾아줌 그 다음 새로운 배열을 반환*/
+//** find는 해당하는 return값의 정의된 값 가장 첫번째 요소를 찾아줌 */
+//** map은 해당하는 value값을 모두 다 적용해줌 그런 다음 새로운 배열을 반환 */
+//** 이것들은 공통점으로 익명함수에서만 사용이 가능하다 */
+
+hobby = ['런닝', '티비보기', '영화', '운동하기', '헬스'];
+
+hobby.forEach((hobby2, index, arr) => console.log(arr[index]));
+
+//퀴즈
+const words = ['dog', 'cat', 'rabbit', 'apple', 'wow'];
+
+//1 .글자수가 3개 초과인 단어만 필터링
+let filter3 = words.filter(function (e) {
+  return e.length > 3;
+});
+
+console.log(filter3);
+//2. 글자가 'a'문자가 포함되어 있는 단어만 필터링
+let filter4 = words.filter(function (e) {
+  return e.includes('a');
+});
+
+console.log(filter4);
