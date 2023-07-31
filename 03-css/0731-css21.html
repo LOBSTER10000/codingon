@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 미디어쿼리</title>
+    <style>
+      .header {
+        background-color: palegoldenrod;
+      }
+
+      .main {
+        background-color: aqua;
+        display: flex;
+      }
+
+      .section {
+        background-color: cornflowerblue;
+        width: 80%;
+      }
+
+      .aside {
+        background-color: hotpink;
+        width: 20%;
+      }
+
+      .footer {
+        background-color: chartreuse;
+      }
+
+      @media screen and (max-width: 480px) {
+        /* viewport가 480px 이하라면 */
+        /* .aside { */
+        /* visibility: hidden; */
+        /* } */
+
+        .section {
+          width: 100%;
+        }
+
+        .header {
+          height: 200px;
+        }
+
+        .main {
+          flex-direction: column-reverse;
+        }
+      }
+
+      @media screen and (orientation: landscape) {
+        body {
+          background-color: bisque;
+        }
+      }
+
+      @media screen and (orientation: portrait) {
+        body {
+          background-color: tomato;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">Header</header>
+    <main class="main">
+      <section class="section">Main</section>
+      <aside class="aside">Aside</aside>
+    </main>
+    <footer class="footer">Footer</footer>
+  </body>
+</html>
