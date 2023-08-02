@@ -8,7 +8,7 @@
     ></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>제이쿼리</title>
+    <title>제이쿼리 실습</title>
     <style>
       h1 {
         color: green;
@@ -34,12 +34,19 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        width: 80px;
+      }
+
+      td {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
       }
     </style>
   </head>
   <body>
-    <div style="margin-top: 3%">
-      <form action="">
+    <div style="margin-top: 3%; text-align: center">
+      <form id="form">
         <label for="dates">날짜</label>
         <input type="text" name="dates" class="dates" value="" /><br />
         <label for="contents">내용</label>
@@ -200,20 +207,26 @@
     </div>
     <script>
       let dates = $('.dates');
-      let submits = $('.submits');
+      let form = $('#form');
 
-      $('td').on('click', function (e) {
+      $('td.day').on('click', function (e) {
         let td = $(this).text().trim();
         dates.val(td);
       });
 
-      submits.on('click', function (e) {
+      form.on('submit', function (e) {
         e.preventDefault();
-        let text1 = $('td.day:contains(' + dates.val() + ')').find(
-          '.text_content'
-        );
+        let selectedDate = dates.val();
         let contents = $('.contents').val();
-        text1.text(contents);
+        console.log(e);
+        $('td.day').each(function () {
+          let td = $(this).text().trim();
+
+          if (td === selectedDate) {
+            let textContent = $(this).find('.text_content');
+            textContent.text(contents);
+          }
+        });
       });
     </script>
   </body>

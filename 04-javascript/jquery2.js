@@ -161,11 +161,62 @@ function removeJquery() {
 }
 
 function emptyJS() {
-  let num = document.querySelector('.nums');
+  let num = document.querySelector('ul.nums');
   num.innerHTML = '';
 }
 
 function emptyJquery() {
-  let num = $('.nums');
+  let num = $('ul.nums');
   num.html('');
+}
+
+// 요소 탐색하기
+function findParent() {
+  // child2 클래스 갖는 요소의 부모 요소
+  let child2 = document.querySelector('.child2');
+  console.log(child2.parentElement);
+}
+
+function findParents() {
+  // JS 없습니다! 패스~~
+}
+
+function findNext() {
+  // child2 클래스 갖는 요소의 다음 형제 요소
+  let child2 = document.querySelector('.child2');
+  console.log(child2.nextElementSibling);
+}
+
+function findPrev() {
+  // child2 클래스 갖는 요소의 이전 형제 요소
+  let child2 = document.querySelector('.child2');
+  console.log(child2.previousElementSibling);
+}
+
+function findChildren() {
+  // parent 클래스 갖는 요소의 자식 요소
+  let parent = document.querySelector('.parent');
+  console.log(parent.childNodes);
+}
+
+// 클래스 조작하기
+function addClass() {
+  // hi 아이디 갖는 요소 선택하여 "fs-50" 클래스 추가
+
+  $('#hi').addClass('.fs-50');
+}
+
+function removeClass() {
+  // hi 아이디 갖는 요소 선택하여 "fs-50" 클래스 삭제
+  $('#hi').removeClass('.fs-50');
+}
+
+function hasClass() {
+  // hi 아이디 갖는 요소 선택하여 "fs-50" 클래스 포함 여부 확인
+  console.log($('#hi').hasClass('.fs-50'));
+}
+
+function toggleClass() {
+  // hi 아이디 갖는 요소 선택하여 "fs-50" 클래스 토글 (있으면 삭제, 없으면 추가)
+  $('#hi').toggleClass('.bg-pink');
 }
