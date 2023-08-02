@@ -29,6 +29,12 @@
       .blue {
         color: blue;
       }
+
+      .text_content {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     </style>
   </head>
   <body>
@@ -55,57 +61,159 @@
         </tr>
         <tr>
           <td colspan="5"></td>
-          <td class="day">1</td>
-          <td class="blue day">2</td>
+          <td class="day">
+            1
+            <div class="text_content"></div>
+          </td>
+          <td class="blue day">
+            2
+            <div class="text_content"></div>
+          </td>
         </tr>
         <tr>
-          <td class="red day">3</td>
-          <td class="day">4</td>
-          <td class="day">5</td>
-          <td class="day">6</td>
-          <td class="day">7</td>
-          <td class="day">8</td>
-          <td class="blue day">9</td>
+          <td class="red day">
+            3
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            4
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            5
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            6
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            7
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            8
+            <div class="text_content"></div>
+          </td>
+          <td class="blue day">
+            9
+            <div class="text_content"></div>
+          </td>
         </tr>
         <tr>
-          <td class="red day">10</td>
-          <td class="day">11</td>
-          <td class="day">12</td>
-          <td class="day">13</td>
-          <td class="day">14</td>
-          <td class="day">15</td>
-          <td class="blue day">16</td>
+          <td class="red day">
+            10
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            11
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            12
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            13
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            14
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            15
+            <div class="text_content"></div>
+          </td>
+          <td class="blue day">
+            16
+            <div class="text_content"></div>
+          </td>
         </tr>
         <tr>
-          <td class="red day">17</td>
-          <td class="day">18</td>
-          <td class="day">19</td>
-          <td class="day">20</td>
-          <td class="day">21</td>
-          <td class="day">22</td>
-          <td class="blue day">23</td>
+          <td class="red day">
+            17
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            18
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            19
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            20
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            21
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            22
+            <div class="text_content"></div>
+          </td>
+          <td class="blue day">
+            23
+            <div class="text_content"></div>
+          </td>
         </tr>
         <tr>
-          <td class="red day">24</td>
-          <td class="day">25</td>
-          <td class="day">26</td>
-          <td class="day">27</td>
-          <td class="day">28</td>
-          <td class="day">29</td>
-          <td class="blue day">30</td>
+          <td class="red day">
+            24
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            25
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            26
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            27
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            28
+            <div class="text_content"></div>
+          </td>
+          <td class="day">
+            29
+            <div class="text_content"></div>
+          </td>
+          <td class="blue day">
+            30
+            <div class="text_content"></div>
+          </td>
         </tr>
         <tr>
-          <td class="red day">31</td>
+          <td class="red day">
+            31
+            <div class="text_content"></div>
+          </td>
         </tr>
       </table>
     </div>
     <script>
-      let day = $('.day');
       let dates = $('.dates');
+      let submits = $('.submits');
 
-      day.on('click', function (e) {
-        dates.val(day);
-        console.log(day);
+      $('td').on('click', function (e) {
+        let td = $(this).text().trim();
+        dates.val(td);
+      });
+
+      submits.on('click', function (e) {
+        e.preventDefault();
+        let text1 = $('td.day:contains(' + dates.val() + ')').find(
+          '.text_content'
+        );
+        let contents = $('.contents').val();
+        text1.text(contents);
       });
     </script>
   </body>
