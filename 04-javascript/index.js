@@ -49,7 +49,14 @@ console.log(c);
 // c = 4; 
 console.log(c); //재할당이 불가능(상수)
 
+let q1 = 3;
+q1 - 2;
 
+console.log('q1'+q1);
+
+const q3 = 1;
+q3 = q3 + 1;
+console.log(q3);
 
 
 
