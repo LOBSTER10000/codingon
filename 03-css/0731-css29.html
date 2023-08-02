@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+    <link rel="stylesheet" href="./css/0731-css29.css"> 
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="my_container">
+        <!-- header -->
+        <header class="container-fluid header">
+            <div class="container banner_box1">
+                    <div class="dark_mode" style="display: flex;">
+                        <a href="#" class="text-muted">다크/화이트모드</a>
+                    </div>
+                    <div class="dark_mode2" style="display: flex;">
+                        <a href="#" class="text-muted" id="box">회원가입</a>
+                        <a href="#" class="text-muted" data-bs-toggle="modal" data-bs-target="#exampleModal">로그인</a>
+                    </div>
+            </div>
+            <div class="container banner_box2">
+                <div class="row">
+                    <div class="col-sm-6 col-12 banner1">
+                        <a href="#"><img src="./img/bootstrap/코딩온.png"></a>
+                    </div>
+                    <div class="col-sm-6 col-12 banner2">
+                        <form style="position: relative;">
+                            <input class="search_box" type="text" placeholder="검색어를 입력하세요">
+                        </form>
+                     </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- section -->
+        <section class="section">
+            
+            <div class="container-fluid menu">
+                <div class="container menu-items">
+                    <div class="row" style="
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;">
+                        <div class="col-sm-3 col-12"><a href="#">커뮤니티</a></div>
+                        <div class="col-sm-3 col-12"><a href="#">갤러리</a></div>
+                        <div class="col-sm-3 col-12"><a href="#">랍스터</a></div>
+                        <div class="col-sm-3 col-12"><a href="#">마이페이지</a></div>
+                    </div>    
+                </div>
+            </div>
+                
+
+                <div class="section_box" style="background-color: rgb(235,237,243); width: 100%; padding-bottom: 30px;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 content_box">
+                                <div class="contents">
+                                    <img src="./img/bootstrap/배너1.png" alt="배너1" style="height: 100%;">
+                                </div>
+                            </div>
+                            <div class="col-md-6 content_box">
+                                <div class="contents">
+                                    <img src="./img/bootstrap/배너2.png" alt="배너2" style="height: 100%;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 content_box">
+                                <div class="contents last">
+                                    <div class="subject_box">
+                                        <div class="subject">새싹인 쉼터</div>
+                                        <div class="more">더보기</div>
+                                    </div>
+                                    <div class="row text_content_box">
+                                       <div class="col-md-8 ms-4 mt-2 text_content">저는 비전공자지만 공백기간이 길었고 다시 시작하는데에 어려움을 느끼고 있었습니다. 공부 방법이나 취업이 막</div>
+                                       <div class="col-md-3 ms-1 mt-2 dates">2023.07.31</div>
+
+                                       <div class="col-md-8 ms-4 mt-2 text_content">정말 만족스러운 수강 기간이었습니다. 코딩은 아무것도 할 줄 몰랐는데 정말 많이 배웠고 좋은 사람들도 많이</div>
+                                       <div class="col-md-3 ms-1 mt-2 dates">2023.07.31</div>
+
+                                       <div class="col-md-8 ms-4 mt-2 text_content">처음에는 6개월 듣는다는게 부담스러웠는데요 계속 강의를 듣고 프로젝트를 진행하면서 오히려 시간이 부족하다고...</div>
+                                       <div class="col-md-3 ms-1 mt-2 dates">2023.07.31</div>
+
+                                       <div class="col-md-8 ms-4 mt-2 text_content">완벽한 교육과정입니다 : 정말 완전 문외한으로 개발을 시작한 이후로 이 과정이 아니었다면 중...</div>
+                                       <div class="col-md-3 ms-1 mt-2 dates">2023.07.31</div>
+
+                                       <div class="col-md-8 ms-4 mt-2 text_content">좋은 환경과 좋은 리더님이 계셔서 실력 향상에 많은 도움이 되었습니다. 감사합니다!!!</div>
+                                       <div class="col-md-3 ms-1 mt-2 dates">2023.07.31</div>
+
+                                       <div class="col-md-8 ms-4 mt-2 text_content">단순한 모델들 뿐 아니라 최근에 나온 모델들 까지 다뤄볼수 있었던 것이 좋았습니다. 또한 실무에서 일하고</div>
+                                       <div class="col-md-3 ms-1 mt-2 dates">2023.07.31</div>
+
+                                       <div class="col-md-8 ms-4 mt-2 text_content"> 정말 알찬 수업이었습니다. 돈 주고 받는 수업이었으면 800만원의 가치 정도 하지 않을까요? 많이 배우고 ...</div>
+                                       <div class="col-md-3 ms-1 mt-2 dates">2023.07.31</div>
+
+                                       <div class="col-md-8 ms-4 mt-2 text_content">안들으면 손해인 수업입니다. 아침부터 저녁까지 전문 강사진의 수업을 들을 수 있고 점심식사, 간식 제공에 ...</div>
+                                       <div class="col-md-3 ms-1 mt-2 dates">2023.07.31</div>
+
+                                       <div class="col-md-8 ms-4 mt-2 text_content">저는 처음 코딩을 시작했습니다. 코딩을 시작할 때 막막했지만 좋은 강사진과 교육환경으로 잘 적응하며 교육.</div>
+                                       <div class="col-md-3 ms-1 mt-2 dates">2023.07.31</div>
+
+                                       <div class="col-md-8 ms-4 mt-2 text_content">6개월이라는 기간 동안 무엇을 배울 수 있을까....하는 생각으로 반신반의 하며 시작하였지만 개인의 성취...</div>
+                                       <div class="col-md-3 ms-1 mt-2 dates">2023.07.31</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 content_box">
+                                <div class="contents last">
+                                    <div class="subject_box">
+                                        <div class="subject">갤러리</div>
+                                        <div class="more">더보기</div>
+                                    </div>
+                                    <div class="img_box">
+                                        <div class="card" style="width: 10rem;">
+                                            <img src="./img/bootstrap/사진1.jpg" class="card-img-top" alt="사진1">
+                                            <div class="card-body">
+                                              <p class="card-text">오늘 먹은 곳은 돈가스집으로 Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nihil ad modi? Optio illum rerum officia culpa iste. Earum blanditiis delectus inventore nihil esse ipsam labore, eligendi eos repudiandae explicabo.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card" style="width: 10rem;">
+                                            <img src="./img/bootstrap/사진2.jpg" class="card-img-top" alt="사진2">
+                                            <div class="card-body">
+                                              <p class="card-text">여기는 소금빵집입니다.</p>
+                                            </div>
+                                          </div>
+                                          <div class="card" style="width: 10rem;">
+                                            <img src="./img/bootstrap/사진5.jpg" class="card-img-top" alt="사진2">
+                                            <div class="card-body">
+                                              <p class="card-text">소고기를 먹어본 결과를 말씀드리면</p>
+                                            </div>
+                                          </div>
+                                    </div>
+
+                                    <div class="img_box" style="margin-top: 1.5vh;">
+                                        <div class="card" style="width: 10rem;">
+                                            <img src="./img/bootstrap/사진3.jpg" class="card-img-top" alt="사진3">
+                                            <div class="card-body">
+                                              <p class="card-text">생각보다 느끼하지 않았던 </p>
+                                            </div>
+                                        </div>
+                                        <div class="card" style="width: 10rem;">
+                                            <img src="./img/bootstrap/사진4.jpg" class="card-img-top" alt="사진4">
+                                            <div class="card-body">
+                                              <p class="card-text">부타스시</p>
+                                            </div>
+                                          </div>
+                                          <div class="card" style="width: 10rem;">
+                                            <img src="./img/bootstrap/사진6.jpg" class="card-img-top" alt="사진2">
+                                            <div class="card-body">
+                                              <p class="card-text">장어덮밥은 언제먹어도 맛있다</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="section_box2" style="background-color: rgb(235,237,243); width: 100%;">
+                    <div id="carouselExampleInterval" class="container carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active" data-bs-interval="5000">
+                            <img src="./img/bootstrap/1.webp" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item" data-bs-interval="5000">
+                            <img src="./img/bootstrap/2.webp" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item" data-bs-interval="5000">
+                            <img src="./img/bootstrap/3.webp" class="d-block w-100" alt="...">
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                </div>
+        </section>
+
+        <!-- footer -->
+        <div class="container-fluid footer" style="background-color: rgb(235,237,243);">
+            <footer class="py-3">
+              <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Lobster</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">LeeDongKyu</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Footer</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+              </ul>
+              <p class="text-center text-muted">&copy; 2023 CodingOn, Inc</p>
+            </footer>
+        </div>
+
+        <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="font-weight: 700;">로그인</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <form action="">
+                                <input type="text" placeholder="아이디를 입력하세요" class="login_box"><br>
+                                <input type="password" placeholder="비밀번호를 입력하세요" class="login_box" style="margin-top: 10px;"><br>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-primary">로그인</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+    </div>
+    <script>
+        var dark = document.querySelector('.dark_mode');
+        var footer = document.querySelector('.footer');
+        var section = document.querySelector('.section_box');
+        var section2 = document.querySelector('.section_box2');
+        dark.addEventListener('click', function(e){
+            document.body.classList.toggle('white_mode');
+            footer.classList.toggle('white_mode');
+            section.classList.toggle('white_mode');
+            section2.classList.toggle('white_mode');
+        });
+    </script>
+</body>
+</html>
