@@ -125,3 +125,47 @@ $('#todo-form').on('submit', function (e) {
   // 3. name 속성값이 todo인 요소의 value 초기화
   $('input[name=todo').val('');
 });
+
+//e.preventDefault() 또 다른 예제
+$('a#inactive').on('click', function (e) {
+  e.preventDefault();
+  // a 태그의 클릭 이벤트에 대해서는 기본 동작은
+  // href에 연결되어있는 링크로의 이동인데 이것을 막는 것임
+  $('#text').append('이 링크는 동작하지 않음');
+});
+
+// this
+// 그 함수가 속해 있던 객체를 참조
+// - 뭔가를 클릭할 때 불러오는 함수 (콜백함수)에서 this는 그 "뭔가"를 의미
+const btns = document.querySelectorAll('.btn');
+const spans = document.querySelectorAll('.span');
+
+//다수의 배열일 경우에는 querySelectorAll을 이용해야합니다
+
+function setBgColor() {
+  this.style.backgroundColor = 'royalblue';
+}
+
+function setBgColor2(element, color) {
+  element.style.backgroundColor = color;
+}
+
+for (let btn of btns) {
+  //   btn.addEventListener('click', function () {
+  //     console.log(this);
+  //     this.style.backgroundColor = 'royalblue';
+  //   });
+  btn.addEventListener('click', function () {
+    setBgColor2(this, 'purple');
+  });
+}
+
+for (let span of spans) {
+  //   span.addEventListener('click', function () {
+  //     console.log(this);
+  //     this.style.backgroundColor = 'royalblue';
+  //   });
+  span.addEventListener('click', function () {
+    setBgColor2(this, 'skyblue');
+  });
+}

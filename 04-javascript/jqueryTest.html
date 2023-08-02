@@ -218,13 +218,14 @@
         e.preventDefault();
         let selectedDate = dates.val();
         let contents = $('.contents').val();
-        console.log(e);
         $('td.day').each(function () {
           let td = $(this).text().trim();
 
           if (td === selectedDate) {
             let textContent = $(this).find('.text_content');
             textContent.text(contents);
+            $('.contents').val('');
+            $('.dates').val('');
           }
         });
       });
