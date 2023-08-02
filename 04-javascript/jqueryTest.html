@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제이쿼리</title>
+    <style>
+      h1 {
+        color: green;
+      }
+      .box {
+        text-align: center;
+      }
+
+      #table {
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+      }
+
+      .red {
+        color: red;
+      }
+      .blue {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="margin-top: 3%">
+      <form action="">
+        <label for="dates">날짜</label>
+        <input type="text" name="dates" class="dates" value="" /><br />
+        <label for="contents">내용</label>
+        <input type="text" name="contents" class="contents" value="" /><br />
+        <input type="submit" value="작성" class="submits" /><br />
+      </form>
+    </div>
+    <div class="box">
+      <h1>2022년 7월</h1>
+      <table id="table">
+        <tr>
+          <th class="red">일</th>
+          <th>월</th>
+          <th>화</th>
+          <th>수</th>
+          <th>목</th>
+          <th>금</th>
+          <th class="blue">토</th>
+        </tr>
+        <tr>
+          <td colspan="5"></td>
+          <td class="day">1</td>
+          <td class="blue day">2</td>
+        </tr>
+        <tr>
+          <td class="red day">3</td>
+          <td class="day">4</td>
+          <td class="day">5</td>
+          <td class="day">6</td>
+          <td class="day">7</td>
+          <td class="day">8</td>
+          <td class="blue day">9</td>
+        </tr>
+        <tr>
+          <td class="red day">10</td>
+          <td class="day">11</td>
+          <td class="day">12</td>
+          <td class="day">13</td>
+          <td class="day">14</td>
+          <td class="day">15</td>
+          <td class="blue day">16</td>
+        </tr>
+        <tr>
+          <td class="red day">17</td>
+          <td class="day">18</td>
+          <td class="day">19</td>
+          <td class="day">20</td>
+          <td class="day">21</td>
+          <td class="day">22</td>
+          <td class="blue day">23</td>
+        </tr>
+        <tr>
+          <td class="red day">24</td>
+          <td class="day">25</td>
+          <td class="day">26</td>
+          <td class="day">27</td>
+          <td class="day">28</td>
+          <td class="day">29</td>
+          <td class="blue day">30</td>
+        </tr>
+        <tr>
+          <td class="red day">31</td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      let day = $('.day');
+      let dates = $('.dates');
+
+      day.on('click', function (e) {
+        dates.val(day);
+        console.log(day);
+      });
+    </script>
+  </body>
+</html>
