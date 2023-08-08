@@ -115,12 +115,30 @@
         }
       }
 
-      function drawStars4() {
+      function drawStars4(a) {
         // TODO: drawStars4() 함수 내부 코드를 채워주세요.
+              
+          for (let i = 1; i <= a; i++) {
+            let spaces = ' '.repeat(a - i);
+            let stars = '*'.repeat(2 * i - 1);
+            console.log(spaces + stars);
+          }
+
+        
+          for (let i = a - 1; i >= 1; i--) {
+            let spaces = ' '.repeat(a - i);
+            let stars = '*'.repeat(2 * i - 1);
+            console.log(spaces + stars);
+          }
       }
 
-      function drawStars5() {
+      function drawStars5(a) {
         // TODO: drawStars5() 함수 내부 코드를 채워주세요.
+        for(let i = 1; i<=a; i++){
+          let spaces = ' '.repeat(a - i);
+            let stars = '*'.repeat(a);
+          console.log(spaces+stars);
+        }
       }
 
       // TODO: 해당 html 파일을 실행한 브라우저 콘솔창에서 drawStars ~ drawStars5 함수를 호출해주세요!
