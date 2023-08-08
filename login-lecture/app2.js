@@ -6,15 +6,9 @@ let fs = require('fs');
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
-app.get('/', function(req,res){
-    res.render('home/index');
-});
+const home = require('./routes/home');
+app.use('/', home); //use -> 미들웨어를 등록해주는 메서드
 
-app.get('/login', function(req,res){
-    res.render('home/login');
+app.listen(3000, () => {
+  console.log('서버 연결 성공했습니다');
 });
-
-app.listen(3000, ()=>{
-    console.log('서버 연결 성공했습니다');
-});
-
