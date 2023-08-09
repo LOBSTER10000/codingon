@@ -30,6 +30,9 @@ function divide(a, b) {
 // exports.E = E;
 // exports.PI = PI;
 
+//es방식
+// export { add, PI, E, minus, multi, divide };
+
 module.exports = {
   add,
   PI,

@@ -1,20 +1,18 @@
 {
-  "name": "nodejsstudy",
+  "name": "src",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "bin": {
-    "nodejsstudy": "bin/www.js"
-  },
-  "dependencies": {
-    "ejs": "^3.1.9",
-    "express": "^4.18.2",
-    "mysql": "^2.18.1"
+    "src": "bin/www.js"
   },
   "scripts": {
-    "start": "node ./bin/www.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2"
+  }
 }

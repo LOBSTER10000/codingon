@@ -1,12 +1,14 @@
 let express = require('express');
 let router = express.Router();
 
-router.get('/', function (req, res) {
-  res.render('home/index');
-});
+let ctrl = require('./home.ctrl.js');
 
-router.get('/login', function (req, res) {
-  res.render('home/login');
-});
+router.get('/', ctrl.output.home);
+
+router.get('/login', ctrl.output.login);
+
+router.post('/login', ctrl.process.login);
+
+router.get('/register', ctrl.output.register);
 
 module.exports = router;
