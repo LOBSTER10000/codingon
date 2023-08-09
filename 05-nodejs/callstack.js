@@ -1,11 +1,14 @@
 function first() {
   second();
-  console.log(1);
-  return;
+  return console.log(1);
 }
 
 function second() {
-  console.log(2);
-  return;
+  third();
+  return console.log(2);
+}
+
+function third() {
+  return console.log(3);
 }
 first();
