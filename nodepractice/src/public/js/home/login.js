@@ -1,15 +1,14 @@
-let id = document.querySelector('#userId');
-let pass = document.querySelector('#userPass');
-let submit = document.querySelector('#submit2');
+const id = document.querySelector('#text2');
+const pass = document.querySelector('#pass2');
+const submit2 = document.querySelector('#button2');
 
-submit.addEventListener('click', (e) => {
+submit2.addEventListener('click', (e) => {
   e.preventDefault();
   const req = {
     id: id.value,
     pass: pass.value,
   };
 
-  console.log(JSON.stringify(req));
   fetch('/login', {
     method: 'POST',
     headers: {
