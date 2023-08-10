@@ -17,12 +17,12 @@ const users = {
   pass: ['1234', '1234', '1234'],
 };
 
-const process = {
+const inputs = {
   login: function (req, res) {
     const id = req.body.id;
     const pass = req.body.pass;
 
-    console.log(req.body);
+    console.log(JSON.stringify(req.body));
 
     if (users.id.includes(id)) {
       const idx = users.id.indexOf(id);
@@ -41,5 +41,5 @@ const process = {
 module.exports = {
   users,
   output,
-  process,
+  inputs,
 };
