@@ -2,8 +2,10 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 
-app.set('views', './views');
+app.set('/views', express.static(__dirname + '/views'));
 app.set('view engine', 'ejs');
+//static 미들웨어 등록
+app.use('/static', express.static(__dirname + '/static'));
 
 // 임시 db에서 가져온 데이터
 const idFromDB = 'banana';
