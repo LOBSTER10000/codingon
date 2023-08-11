@@ -8,34 +8,27 @@ const output = {
   },
 };
 
-const users = {
-  id: ['lobster100', 'lobster', 'lee'],
-  pass: ['1', '1', '1'],
-};
+const User = require('../../models/User.js');
+const us = new User();
 
 const input = {
   login: function (req, res) {
     const id = req.body.id;
     const pass = req.body.pass;
 
-    if (users.id.includes(id)) {
-      const idx = users.id.indexOf(id);
-      if (users.pass[idx] === pass) {
-        return res.json({
-          success: true,
-          msg: '로그인에 성공했습니다',
-        });
+    console.log(us.getUsersId());
+    const response = {};
+    if (us.getUsersId().includes(id)) {
+      const idx = us.getUsersId().indexOf(id);
+      if (us.getUsersPass()[idx] === pass) {
+        response.success = true;
+        response.msg = '로그인에 성공했습니다';
+        return res.json(response) + console.log(us.getUsersName()[idx]);
       }
     }
-    return res.json({
-      success: false,
-      msg: '로그인에 실패했습니다',
-    });
+    response.success = false;
+    response.msg = '로그인에 실패했습니다';
+    return res.json(response) + console.log(us.getUsersName());
   },
 };
-
-module.exports = {
-  users,
-  output,
-  input,
-};
+module.exports = { output, User, input };
