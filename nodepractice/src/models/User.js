@@ -1,20 +1,20 @@
 class User {
-  _users = {
+  #users = {
     id: ['lobster', 'lob', 'abc'],
     pass: ['1', '2', '3'],
     name: ['랍스터', '랍', '에이'],
   };
 
   getUsersId() {
-    return this._users.id;
+    return this.#users.id;
   }
 
   getUsersPass() {
-    return this._users.pass;
+    return this.#users.pass;
   }
 
   getUsersName() {
-    return this._users.name;
+    return this.#users.name;
   }
 }
 
