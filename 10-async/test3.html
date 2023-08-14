@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      function bgChange(text) {
+        return new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            document.body.style.background = text;
+            resolve(text);
+          }, 1000);
+        });
+      }
+
+      // promise -then으로 표기
+      bgChange('purple')
+        .then((result) => {
+          result = 'orange';
+          return bgChange(result);
+        })
+        .then((result) => {
+          result = 'red';
+          return bgChange(result);
+        })
+        .then((result) => {
+          result = 'skyblue';
+          return bgChange(result);
+        })
+        .then((result) => {
+          result = 'dodgerblue';
+          return bgChange(result);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+
+      //2.async - await로 표기
+      async function colors() {
+        try {
+          await bgChange('purple');
+          await bgChange('skyblue');
+          await bgChange('red');
+          await bgChange('dodgerblue');
+        } catch (e) {
+          console.err(e);
+        }
+      }
+
+      colors();
+    </script>
+  </body>
+</html>

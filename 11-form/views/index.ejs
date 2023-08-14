@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>폼전송을 연습해보자</title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <div>
+      <form action="/getForm" method="GET">
+        <h2>Get 요청</h2>
+        <input type="text" placeholder="ID" name="id" />
+        <input type="password" placeholder="PW" name="pw" /><br />
+        <input type="submit" />
+      </form>
+      <form action="/postForm" method="POST">
+        <h2>Post 요청</h2>
+        <input type="text" placeholder="ID" name="id" />
+        <input type="password" placeholder="PW" name="pw" /><br />
+        <input type="submit" />
+      </form>
+    </div>
+  </body>
+</html>
