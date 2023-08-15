@@ -8,6 +8,7 @@ submit2.addEventListener('click', () => {
     pass: pass.value,
   };
 
+  console.log(req);
   fetch('/login', {
     method: 'POST',
     headers: {
@@ -20,7 +21,7 @@ submit2.addEventListener('click', () => {
       if (res.success) {
         location.href = '/';
       } else {
-        alert(res.msg);
+        alert('로그인에 실패하셨습니다');
       }
     })
     .catch((err) => console.error(err));
