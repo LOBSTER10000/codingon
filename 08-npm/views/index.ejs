@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>노드js</title>
+
+    <%- include('./includes/head.ejs', {title: '홈'}) %>
+    <link rel="stylesheet" href="/static/css/home.css" />
     <style>
       h1 {
         color: orange;
@@ -16,10 +18,25 @@
     </style>
   </head>
   <body>
+    <%- include('./includes/header.ejs') %>
     <h1>안녕하세요</h1>
     <% for(let i = 0; i< 5; i++) { %>
-    <div><%= i %></div>
+    <div><%= userId%></div>
+    <div><%= userPw%></div>
     <% }%>
     <p>node에서 http모듈을 이용해 클라이언트 요청에 대해 응답했습니다.</p>
+    <% for(let i = 0; i< 3; i++) {%>
+    <button type="button"><%= btns[i]%></button><br />
+    <% }%>
+    <span> <%= me.name%></span><br />
+    <span> <%= me.msg%></span>
+
+    <br />
+    <% if(!isLogin){ %>
+    <h4>아직 로그인을 하지 않으셨군요!</h4>
+    <% } else {%>
+    <h1>로그인을 하셨군요!</h1>
+    <%} %>
   </body>
 </html>
+<!-- ejs에서도 변수선언 가능하나 기본적으로 ejs파일 안에 있는 변수가 먼저 실행되게 되어있음 -->

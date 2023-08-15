@@ -1,20 +1,18 @@
-let id = document.querySelector('#userId');
-let pass = document.querySelector('#userPass');
-let submit = document.querySelector('#submit2');
+let id = document.querySelector('#text2');
+let pass = document.querySelector('#pass2');
+let button = document.querySelector('#buttons');
 
-submit.addEventListener('click', (e) => {
+button.addEventListener('click', function (e) {
   e.preventDefault();
   const req = {
     id: id.value,
     pass: pass.value,
   };
+  console.log(req);
 
-  console.log(JSON.stringify(req));
   fetch('/login', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(req),
   })
     .then((res) => res.json())
@@ -26,5 +24,5 @@ submit.addEventListener('click', (e) => {
         alert(res.msg);
       }
     })
-    .catch((err) => console.error(err));
+    .catch((err) => console.error('여기는 에러메세지를 출력합니다 ' + err));
 });

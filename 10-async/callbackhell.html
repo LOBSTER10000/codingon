@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>콜백지옥 예시</title>
+  </head>
+  <body>
+    <h1>콜백지옥 예시</h1>
+    <script>
+      // 1초 뒤에 body 태그 색상을 빨간색으로 변경
+      //   setTimeout(function () {
+      //     const body = document.body;
+      //     body.style.background = 'red';
+      //   }, 1000);
+
+      // 2.
+
+      setTimeout(function () {
+        const body = document.body;
+        body.style.background = 'red';
+        setTimeout(function () {
+          body.style.background = 'blue';
+          setTimeout(function () {
+            body.style.background = 'black';
+            setTimeout(function () {
+              body.style.background = 'skyblue';
+            }, 1000);
+          }, 1000);
+        }, 1000);
+      }, 1000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button">click me!</button>
+  </body>
+  <script>
+    const button = document.querySelector('button');
+    function sayHello() {
+      console.log(`say hello~!!`);
+    }
+    button.addEventListener('click', sayHello);
+    // 인자 함수 보다 아래에 있는 경우 그것이 콜백함수다.
+    // 순서를 지정해서 실행하고 싶은 경우에 함수를 미리 만들어놓음
+    // 함수를 선언한 뒤에 함수 타입 파라미터를 맨 마지막에 하나 더 선언하는 식으로 정의한다
+  </script>
+</html>

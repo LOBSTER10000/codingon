@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>get으로 정보 받기</title>
+  </head>
+  <body>
+    <form action="/getTest" method="GET">
+      <div>
+        <label for="names">이름</label>
+        <input type="text" name="names" /><br />
+      </div>
+      <div>
+        <label for="gender">성별</label>
+        <input type="radio" name="gender" value="male" />남성
+        <input type="radio" name="gender" value="female" />여성<br />
+      </div>
+      <div>
+        <label for="birth">생년월일</label>
+        <select name="birth" id="birth">
+            <% for(let z = 2023; z >= 1980; z--) { %> 
+                <option value="<%= z %>"><%= z %></option>
+            <% } %> 
+        </select>
+        
+        <select name="month" id="month">
+            <% for(let i = 1; i <= 12; i++) { %>
+                <option value="<%= i %>"><%= i %></option>
+            <% } %>
+        </select>
+    
+        <select name="days" id="days">
+            <% for(let j = 1; j <= 31; j++) { %>
+                <option value="<%= j %>"><%= j %></option>
+            <% } %>
+        </select>
+    
+      </div>
+        <label for="hobby">관심사</label>
+        <input type="checkbox" name="hobby" value="trip"/>여행
+        <input type="checkbox" name="hobby" value="fashion"/>패션
+        <input type="checkbox" name="hobby " value="dishes"/>음식<br / >
+      </div>
+      <input type="submit">
+    </form>
+  </body>
+</html>

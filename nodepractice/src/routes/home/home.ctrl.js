@@ -8,40 +8,30 @@ const output = {
   },
 };
 
-const users = {
-  id: ['lobster100', 'abc100', 'kim100'],
-  pass: ['1234', '1234', '1234'],
-};
+const users = require('../../models/User.js');
+const User2 = require('../../models/User2.js');
 
-const process = {
+const input = {
   login: function (req, res) {
-    const id = req.body.id;
-    const pass = req.body.pass;
+    const user = new User2(req.body);
+    const response = user.login();
+    return res.json(response);
+    // const id = req.body.id;
+    // const pass = req.body.pass;
 
-    console.log(req.body);
-
-    if (users.id.includes(id)) {
-      const idx = users.id.indexOf(id);
-      if (users.pass[idx] === pass) {
-        return (
-          res.json({
-            success: true,
-            msg: '로그인에 성공하셨습니다',
-          }) + console.log('로그인에 성공했습니다')
-        );
-      }
-    }
-    return (
-      res.json({
-        success: false,
-        msg: '로그인에 실패하였습니다',
-      }) + console.log('로그인에 실패했습니다')
-    );
+    // const user = users.getUsers('id', 'pass');
+    // const response = {};
+    // if (user.id.includes(id)) {
+    //   const idx = user.id.indexOf(id);
+    //   if (user.pass[idx] === pass) {
+    //     response.success = true;
+    //     response.msg = '로그인에 성공하셨습니다';
+    //     return res.json(response);
+    //   }
+    // }
+    // response.success = false;
+    // response.msg = '로그인에 실패했습니다';
+    // return res.json(response);
   },
 };
-
-module.exports = {
-  users,
-  output,
-  process,
-};
+module.exports = { output, users, input };
