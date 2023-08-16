@@ -16,6 +16,8 @@ const input = {
     const user = new User2(req.body);
     const response = user.login();
     return res.json(response);
+
+    // 기존에 리팩토링 하기 전 코드
     // const id = req.body.id;
     // const pass = req.body.pass;
 
