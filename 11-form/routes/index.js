@@ -31,4 +31,14 @@ routes.get('/getTest', (req, res) => {
   });
 });
 
+routes.get('/postInfo', (req, res) => {
+  res.render('postInfo');
+});
+
+routes.post('/postResult', (req, res) => {
+  res.render('postResult', {
+    info: req.body,
+  });
+});
+
 module.exports = routes;

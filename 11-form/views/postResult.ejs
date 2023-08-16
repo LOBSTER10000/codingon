@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>post 결과값</title>
+  </head>
+  <body>
+    <h1>post 결과값 나타내기</h1>
+    <ul>
+      <li><%= info.userName %></li>
+      <li><%= info.gender %></li>
+      <li><%= info.birth %>년 <%= info.month%>월 <%= info.days %></li>
+      <li><%= info.hobby %></li>
+      <li><div id="colors" style="width: 100px; height: 100px"></div></li>
+      <li><%= info.numbers %></li>
+    </ul>
+  </body>
+  <script>
+    const colors = document.querySelector('#colors');
+    colors.style.background = '<%= info.colors%>';
+  </script>
+</html>
