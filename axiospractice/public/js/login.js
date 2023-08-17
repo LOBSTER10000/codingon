@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
   const id = document.querySelector('#id');
-  const password = document.querySelector('#password');
+  const pass = document.querySelector('#password');
   const form = document.querySelector('#loginForm');
-
+  const content = document.querySelector('#content');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -14,14 +14,25 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('/login', {
       headers: { 'content-type': 'application/json' },
       method: 'POST',
-      body: JSON.parse(req),
+      body: JSON.stringify(req),
     })
       .then((res) => {
-        console.log(res);
+        res.json();
       })
-      .then((res) => {
-        if (res.success === true) {
+      .then((data) => {
+        if (data.success) {
+          alert('로그인에 성공했습니다');
+          content.textContent = '로그인에 성공했습니다';
+          content.style.color = 'blue';
         }
+        else {
+          alert('로그인에 실패했습니다');
+          content.textContent = '로그인에 실패했습니다';
+          content.style.color = 'red';
+        }
+      })
+      .catch((err)=>{
+        console.error(err);
       });
   });
 });
