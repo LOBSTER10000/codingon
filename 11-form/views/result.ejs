@@ -15,5 +15,25 @@
     <h1><%=title%></h1>
     <div><span><%= userInfo.id %></span>님 환영합니다!</div>
     <div>비밀번호는 <span><%=userInfo.pw%></span>이군요!!</div>
+    <% if(Boolean(userInfo.email)){ %>
+    <div>이메일 주소는 <span><%=userInfo.email%></span>이십니다!</div>
+    <% } %> <% if(Boolean(userInfo.grade)){%>
+    <div>학년은 <span><%=userInfo.grade%></span>학년이시네요</div>
+    <%}%>
   </body>
 </html>
+
+<!-- truthy와 falsy -->
+<!-- 
+  Boolean('hello'); // true => truthy(true같은것);
+  Boolean(''); // false -> falsy (false같은것);
+  undefined / null / 0 / ''/ NaN -> falsy한 값
+  !undefined / !null/ !0 / !''/ !NaN// -> true;
+ -->
+
+<!-- falsy와 truthy를 이용한 조건식 -->
+<!-- if(userInfo.grade === ''){
+      console.log('grade 값이 없음');
+ }  else {
+      console.log('grade 값이 있음');
+ }-->

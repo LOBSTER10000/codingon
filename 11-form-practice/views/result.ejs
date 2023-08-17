@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>결과값</title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <ul>
+      <li>이름 : <%= info.userName %></li>
+      <li>성별 : <%= info.gender %></li>
+      <li>
+        생년월일 : <%= info.birth %>년 <%= info.month%>월 <%= info.days %>일
+      </li>
+      <li>취미 : <%= info.hobby %></li>
+      <% if(info.colors){%>
+      <li>
+        좋아하는 색상 :
+        <div id="colors" style="width: 100px; height: 100px"></div>
+      </li>
+      <%}%> <% if(info.numbers){%>
+      <li>좋아하는 번호 : <%= info.numbers %></li>
+      <%}%>
+    </ul>
+  </body>
+  <script>
+    const colors = document.querySelector('#colors');
+    colors.style.background = '<%= info.colors%>';
+  </script>
+</html>

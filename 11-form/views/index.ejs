@@ -10,14 +10,49 @@
     <div>
       <form action="/getForm" method="GET">
         <h2>Get 요청</h2>
-        <input type="text" placeholder="ID" name="id" />
-        <input type="password" placeholder="PW" name="pw" /><br />
+        <input
+          type="text"
+          placeholder="ID는 최소 3글자"
+          name="id"
+          required
+          minlength="3"
+        />
+        <input
+          type="password"
+          placeholder="PW는 최소한 4글자 이상"
+          name="pw"
+          required
+          minlength="4"
+        /><br />
+        <input
+          type="email"
+          placeholder="EMAIL은 핈 값입니다"
+          name="email"
+          required
+        />
+        <input type="number" name="grade" placeholder="GRADE" /><br />
         <input type="submit" />
       </form>
       <form action="/postForm" method="POST">
+        <!-- required 속성: 폼 요소에 값이 반드시 들어가야하는지 여부를 결정 -->
+        <!-- pattern : 폼 요소에 값 입력되었을 때 그 입력된 값에 대한 검증을 의미 -->
         <h2>Post 요청</h2>
-        <input type="text" placeholder="ID" name="id" />
-        <input type="password" placeholder="PW" name="pw" /><br />
+        <input
+          type="text"
+          placeholder="ID"
+          name="id"
+          pattern="^([a-zA-Z0-9가-힣]){4,}$"
+          title="아이디는 대소문자, 한글, 숫자로 구성된 4자 이상의 문자여야 합니다"
+          required
+        />
+        <input
+          type="password"
+          placeholder="PW"
+          name="pw"
+          pattern="^([a-z0-9]){8,12}$"
+          title="패스워드는 소문자, 숫자로만 구성된 8자 이상 12자 이하의 문자여야 합니다"
+          required
+        /><br />
         <input type="submit" />
       </form>
     </div>
