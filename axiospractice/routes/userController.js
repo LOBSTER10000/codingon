@@ -1,6 +1,6 @@
 const user = {
   id: ['lobster', 'lob', 'cob'],
-  password: ['123456789', '123456789', '123456789'],
+  password: ['1234', '1234', '1234'],
 };
 
 const input = {
@@ -14,6 +14,8 @@ const input = {
         return res.json({
           success: true,
           msg: '로그인이 되셨습니다',
+          id: id,
+          password: password,
         });
       }
     }

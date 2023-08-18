@@ -1,18 +1,17 @@
 {
-  "name": "axios",
+  "name": "12-dynamic-form",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "axios": "^1.4.0",
+    "body-parser": "^1.20.2",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "mysql": "^2.18.1",
-    "axios": "^1.4.0",
-    "body-parser": "^1.20.1"
+    "mysql": "^2.18.1"
   },
   "keywords": [],
   "author": "",

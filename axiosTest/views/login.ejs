@@ -6,12 +6,18 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="/login" method="post" id="realForm">
+    <form action="/login" method="post" id="loginForm">
       <div>
-        <input type="text" name="userId" placeholder="ID를 적어주세요" /><br />
+        <input
+          type="text"
+          name="id"
+          id="id"
+          placeholder="ID를 적어주세요"
+        /><br />
         <input
           type="password"
-          name="userPassword"
+          name="password"
+          id="password"
           placeholder="pw를 적어주세요"
         /><br />
         <input type="submit" value="로그인" />
