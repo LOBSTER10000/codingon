@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>오늘의 날씨입니다</h1>
+    <div id="result"></div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    function getApi() {
+      const result = document.querySelector('#result');
+      axios({
+        url: `https://api.openweathermap.org/data/2.5/weather?lat=37.5683&lon=126.9778&appid=42c14b879816b77fdde56544aece8232`,
+        method: 'get',
+      })
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+          result.innerHTML = `
+            <div>
+             <ul>
+                <li>현재 ${res.data.name}의 날씨입니다</li>
+                <li>서울의 위도는 ${res.data.coord.lat}이며 경도는 ${res.data.coord.lon}입니다</li>
+                <li>현재 서울의 구름 지수는 ${res.data.clouds.all}로 구름하나 없는 맑은 날씨입니다</li>
+                <li>현재 서울의 바람 속도는 ${res.data.wind.speed}/s입니다</li>
+             </ul>    
+            </div>
+          `;
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+
+    getApi();
+  </script>
+</html>

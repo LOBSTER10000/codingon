@@ -6,6 +6,10 @@ router.get('/', function (req, res) {
   res.render('dynamic');
 });
 
+router.get('/dynamic', function (req, res) {
+  res.render('dynamic2');
+});
+
 router.get('/ajax', (req, res) => {
   console.log(req.query);
   res.send(req.query);
@@ -41,6 +45,10 @@ router.get('/fetch', (req, res) => {
 
 router.post('/fetch', (req, res) => {
   res.send(req.body);
+});
+
+router.get('/dynamic2', (req, res) => {
+  res.render('dynamic3');
 });
 
 module.exports = router;

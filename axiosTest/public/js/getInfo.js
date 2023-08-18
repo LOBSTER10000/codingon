@@ -2,28 +2,19 @@ function getFetch() {
   const form = document.forms['realForm'];
   const result = document.querySelector('#result');
 
-  const data = {
-    name: form.userName.value,
-    gender: form.gender.value,
-    birth: form.birth.value,
-    month: form.month.value,
-    days: form.days.value,
-    hobby: form.hobby.value,
-  };
-
-  fetch('/getFetch', {
-    method: 'GET',
-  })
+  fetch(
+    `/getFetch?userName=${form.userName.value}&gender=${form.gender.value}&birth=${form.birth.value}&month=${form.month.value}&days=${form.days.value}&hobby=${form.hobby.value}`
+  )
     .then((res) => {
       return res.json();
     })
     .then((data) => {
-      console.log(data);
+      console.log(data.name);
       result.innerHTML = `
           <h1> 이곳은 결과창입니다!!! </h1>
           <ul>
             <li>
-                        이름은 <span style="color: blue;">${data.name}</span>
+                        이름은 <span style="color: blue;">${data.userName}</span>
                         </li>
                         <li>
                         성별은 <span style="color: blue;">${data.gender}</span>이고
