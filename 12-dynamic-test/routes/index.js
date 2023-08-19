@@ -18,4 +18,18 @@ router.get('/getAjax', function (req, res) {
   console.log(req.query);
   res.send(req.query);
 });
+
+router.get('/getInfo', function (req, res) {
+  res.render('getInfo');
+});
+
+router.get('/changeAjax', function (req, res) {
+  res.send(req.query);
+});
+
+router.get('/login', function (req, res) {
+  res.render('login');
+});
+
+router.post('/loginAjax', controller.input.login);
 module.exports = router;

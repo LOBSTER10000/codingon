@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form name="loginForm">
+      <div>
+        <input
+          type="text"
+          name="id"
+          id="id"
+          placeholder="ID를 적어주세요"
+        /><br />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="pw를 적어주세요"
+        /><br />
+        <button type="button" onclick="loginAjax()">로그인</button>
+      </div>
+    </form>
+    <div id="content"></div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.7.0.js"
+    integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    function loginAjax() {
+      const form = document.forms['loginForm'];
+      const result = document.querySelector('#content');
+
+      const data = {
+        id: form.id.value,
+        password: form.password.value,
+      };
+
+      $.ajax({
+        method: 'POST',
+        url: '/loginAjax',
+        data: data,
+        success: function (res) {
+          if (res.id === data.id && res.password === data.password) {
+            console.log('로그인 성공');
+          } else if (res.id === data.id) {
+            if (res.password !== data.password) {
+              console.log('비밀번호가 맞지 않습니다.');
+            }
+          } else if (res.password === data.password) {
+            if (res.id !== data.id) {
+              console.log('아이디가 맞지 않습니다');
+            }
+          } else if (data.id === '' || data.password === '') {
+            console.log('빈 값이 있습니다');
+          } else if (res.id !== data.id) {
+            if (res.password !== data.password) {
+              console.log('둘 다 맞지 않는 정보입니다');
+            }
+          }
+        },
+      });
+    }
+  </script>
+</html>
