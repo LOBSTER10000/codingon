@@ -15,6 +15,7 @@ class User {
     }, {});
     return newUsers;
   }
+
   static getUserInfo(id) {
     const users = this.users;
     const idx = users.id.indexOf(id);

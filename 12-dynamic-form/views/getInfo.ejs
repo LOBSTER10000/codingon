@@ -59,7 +59,7 @@
       function getAxios() {
         const form = document.forms['realForm'];
         const result = document.querySelector('#result');
-        console.dir(form);
+
         const selectedHobbies = Array.from(form.interest)
           .filter((checkbox) => checkbox.checked)
           .map((checkbox) => checkbox.value);
@@ -72,6 +72,7 @@
           days: form.days.value,
           interest: selectedHobbies.join(', '),
         };
+
         console.log(form.interest);
         axios({
           url: '/getAxios',

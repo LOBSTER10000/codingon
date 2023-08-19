@@ -154,6 +154,20 @@
         }
       }
 
+      // axios({
+      //   method: 'post',
+      //   url: '/axios',
+      //   data: data,
+      // })
+      //   .then((response) => {
+      //     console.log(response);
+      //     const { name, gender } = response.data; // 객체 구조분해 할당
+      //     resultBox.textContent = `POST /axios 요청 완료!! ${name}님은 ${gender}이시죠?ㅎㅎ`;
+      //   })
+      //   .catch((error) => {
+      //     console.log('Error!', error);
+      //   });
+
       async function axiosPost() {
         console.log('axiosPost 함수 호출!');
 
@@ -162,20 +176,6 @@
           name: form.name.value,
           gender: form.gender.value,
         };
-
-        // axios({
-        //   method: 'post',
-        //   url: '/axios',
-        //   data: data,
-        // })
-        //   .then((response) => {
-        //     console.log(response);
-        //     const { name, gender } = response.data; // 객체 구조분해 할당
-        //     resultBox.textContent = `POST /axios 요청 완료!! ${name}님은 ${gender}이시죠?ㅎㅎ`;
-        //   })
-        //   .catch((error) => {
-        //     console.log('Error!', error);
-        //   });
 
         // async/await 로 변경
         try {

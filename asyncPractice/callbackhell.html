@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button">click me!</button>
+    <script>
+      //   setTimeout(function () {
+      //     const body = document.body;
+      //     body.style.background = 'red';
+      //     setTimeout(function () {
+      //       body.style.background = 'blue';
+      //       setTimeout(function () {
+      //         body.style.background = 'dodgerblue';
+      //       }, 1000);
+      //     }, 1000);
+      //   }, 1000);
+
+      const button = document.querySelector('button');
+
+      function sayHello() {
+        setTimeout(function () {
+          const body = document.body;
+          body.style.background = 'red';
+          setTimeout(function () {
+            body.style.background = 'blue';
+            setTimeout(function () {}, 1000);
+          }, 1000);
+        }, 1000);
+      }
+
+      button.addEventListener('click', sayHello);
+
+      // 독립적으로 수행되는 작업도 있는 반면 응답을 받은 이후
+      // 처리되어야하는 종속적인 작업들도 있을 수 있기에 그에 대한 대응방안이 콜백
+    </script>
+  </body>
+</html>

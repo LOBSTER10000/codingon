@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function bgChange(text) {
+        return new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            document.body.style.background = text;
+            resolve(text);
+          }, 1000);
+        });
+      }
+
+      //   bgChange('red')
+      //     .then((result) => {
+      //       result = 'dodgerblue';
+      //       return bgChange(result);
+      //     })
+      //     .then((result) => {
+      //       result = 'black';
+      //       return bgChange(result);
+      //     })
+      //     .then((result) => {
+      //       result = 'orange';
+      //       return bgChange(result);
+      //     })
+      //     .catch((err) => {
+      //       console.error(err);
+      //     });
+
+      async function changes() {
+        try {
+          await bgChange('red');
+          await bgChange('blue');
+          await bgChange('orange');
+        } catch (err) {
+          console.error(err);
+        }
+      }
+
+      changes();
+    </script>
+  </body>
+</html>
