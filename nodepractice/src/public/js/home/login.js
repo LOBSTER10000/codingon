@@ -1,12 +1,12 @@
-let id = document.querySelector('#text2');
-let pass = document.querySelector('#pass2');
+let id = document.querySelector('#id'); // 수정
+let pass = document.querySelector('#password'); // 수정
 let button = document.querySelector('#buttons');
 
 button.addEventListener('click', function (e) {
   e.preventDefault();
   const req = {
     id: id.value,
-    pass: pass.value,
+    password: pass.value,
   };
   console.log(req);
 

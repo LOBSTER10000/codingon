@@ -24,7 +24,7 @@ router.post('/ajax', (req, res) => {
   res.send(req.body);
 });
 
-router.get('/getAxios', (req, res) => {
+router.get('/axios', (req, res) => {
   console.log(req.query);
   res.json(req.query);
 });
@@ -34,7 +34,7 @@ router.get('/axiosGet', (req, res) => {
   res.json(req.query);
 });
 
-router.post('/axiosPost', (req, res) => {
+router.post('/axios', (req, res) => {
   console.log(req.body);
   res.json(req.body);
 });

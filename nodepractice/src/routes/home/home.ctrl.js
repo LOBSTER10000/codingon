@@ -6,17 +6,21 @@ const output = {
   login: function (req, res) {
     res.render('home/login');
   },
+
+  register: function (req, res) {
+    res.render('home/register');
+  },
 };
 
-const users = require('../../models/User.js');
-const User2 = require('../../models/User2.js');
-
+const UserStorage = require('../../models/UserStorage.js');
+const User = require('../../models/User.js');
 const input = {
   login: function (req, res) {
-    const user = new User2(req.body);
+    // 클래스 자체에 대해 함수 호출
+
+    const user = new User(req.body);
     const response = user.login();
     return res.json(response);
-
     // 기존에 리팩토링 하기 전 코드
     // const id = req.body.id;
     // const pass = req.body.pass;
@@ -36,4 +40,4 @@ const input = {
     // return res.json(response);
   },
 };
-module.exports = { output, users, input };
+module.exports = { input, output };
