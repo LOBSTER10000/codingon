@@ -16,27 +16,27 @@
       <div>
         <fieldset>
           <legend>성별</legend>
-          <input type="radio" name="gender" value="남성" />남성
-          <input type="radio" name="gender" value="여성" />여성
+          <input type="radio" name="gender" value="남성" required />남성
+          <input type="radio" name="gender" value="여성" required />여성
         </fieldset>
       </div>
       <br />
       <div>
         <fieldset>
           <legend>생년월일</legend>
-          <select name="birth" id="birth">
+          <select name="birth" id="birth" required>
             <% for(let z = 2023; z >= 1980; z--) { %>
             <option value="<%= z %>"><%= z %></option>
             <% } %>
           </select>
 
-          <select name="month" id="month">
+          <select name="month" id="month" required>
             <% for(let i = 1; i <= 12; i++) { %>
             <option value="<%= i %>"><%= i %></option>
             <% } %>
           </select>
 
-          <select name="days" id="days">
+          <select name="days" id="days" required>
             <% for(let j = 1; j <= 31; j++) { %>
             <option value="<%= j %>"><%= j %></option>
             <% } %>
@@ -51,9 +51,10 @@
           <input type="checkbox" name="hobby" value="음식" />음식
         </fieldset>
       </div>
-      <button type="button" onclick="getFetch()">회원등록</button>
+      <button type="button" onclick="getAxios()">회원등록</button>
     </form>
     <div id="result"></div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/getInfo.js"></script>
   </body>
 </html>

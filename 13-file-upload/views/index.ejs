@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <!-- single fileUpload -->
@@ -28,5 +29,43 @@
       <input type="text" name="title2" / ><br />
       <button type="submit">등록하기</button>
     </form>
+
+    <h2>동적 파일 업로드</h2>
+    <input type="file" name="dynamicUserFile" id="dynamic-file" /><br />
+    <button type="button" onclick="fileUpload()">업로드</button>
+    <br />
+    <!-- 업로드한 이미지를 보여줄 img 태그 요소 -->
+    <img src="" alt="" width="400" />
   </body>
+  <script>
+    function fileUpload() {
+      console.log('동적 파일 업로드');
+      const formData = new FormData();
+      // formData 객체를 이용하면 쉽게 전송 가능!
+      // js 만으로 폼을 전송(파일 데이터를 서버로 전송해야하는 케이스);
+      const file = document.querySelector('#dynamic-file');
+      console.dir(file);
+      console.dir(file.files); // 업로드한 파일 객체
+      console.dir(file.files[0]); //업로드한 첫파일
+      formData.append('dynamicUserFile', file.files[0]);
+
+      axios({
+        method: 'post',
+        url: '/dynamicFile',
+        data: formData,
+        header: {
+          'content-type': 'multipart/form-data',
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+          console.log(res.data.path);
+          document.querySelector('img').src = res.data.originalname;
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  </script>
 </html>

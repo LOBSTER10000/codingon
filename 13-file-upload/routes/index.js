@@ -99,6 +99,17 @@ router.post(
   }
 );
 
+//동적 폼 전송
+router.post(
+  '/dynamicFile',
+  uploadDetail.single('dynamicUserFile'),
+  function (req, res) {
+    console.log(req.file);
+    res.send(req.file);
+  }
+);
+
+// 마지막 파일
 router.post('/upload3', uploadTest.single('userFiles'), function (req, res) {
   console.log(req.file);
   console.log(req.body);
@@ -106,7 +117,7 @@ router.post('/upload3', uploadTest.single('userFiles'), function (req, res) {
     <div style="margin: 0 auto; text-align: center">
       <h1>여기는 결과창</h1>
       <div>
-        <img src="/${req.file.filename}" alt="사진" />
+        <img src="/${req.file.filename}" alt="${req.file.filename}" width="200"/>
         <div>
           <h2>${req.body.id}님 회원가입을 축하합니다</h2>
           <p>비밀번호 : ${req.body.password}</p>

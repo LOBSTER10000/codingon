@@ -1,34 +1,38 @@
-function getFetch() {
+function getAxios() {
   const form = document.forms['realForm'];
   const result = document.querySelector('#result');
+  const name = form.userName.checkValidity();
+  console.log(name);
+  const gender = form.gender[0].checkValidity();
+  console.log(gender);
+  const hobby = form.hobby[0].checkValidity();
+  console.log(hobby);
+  userData = {
+    id: form.userName.value,
+    gender: form.gender.value,
+    birth: form.birth.value,
+    month: form.month.value,
+    days: form.days.value,
+    hobby: form.hobby.value,
+  };
 
-  fetch(
-    `/getFetch?userName=${form.userName.value}&gender=${form.gender.value}&birth=${form.birth.value}&month=${form.month.value}&days=${form.days.value}&hobby=${form.hobby.value}`
-  )
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data.name);
-      result.innerHTML = `
-          <h1> 이곳은 결과창입니다!!! </h1>
-          <ul>
-            <li>
-                        이름은 <span style="color: blue;">${data.userName}</span>
-                        </li>
-                        <li>
-                        성별은 <span style="color: blue;">${data.gender}</span>이고
-                        </li>
-                        <li>
-                        생년월일은 <span style="color: blue;">${data.birth}년 ${data.month}월 ${data.days}일</span>
-                        </li>
-                        <li>
-                        취미는 <span style="color: blue;">${data.hobby}</span>이군요.
-                        </li>
-          </ul>`;
-      result.style.color = 'dodgerblue';
-    })
-    .catch((err) => {
-      console.error(err);
+  if (!name) {
+    result.textContent = `이름에 대한 내용을 적지 않았습니다`;
+  } else if (!gender) {
+    result.textContent = `성별에 대한 내용을 적지 않았습니다`;
+  } else if (!birth) {
+    result.textContent = `연도를 고르지 않았습니다`;
+  } else if (!hobby) {
+    result.textContent = `취미를 선택하지 않았습니다`;
+  } else {
+    axios({
+      url: '/getAxios',
+      method: 'get',
+      params: userData,
+    }).then((res) => {
+      console.log(res);
+      console.log(res.data);
+      result.textContent = `${res.data.id}, ${res.data.gender}, ${res.data.birth}, ${res.data.month}, ${res.data.days}`;
     });
+  }
 }

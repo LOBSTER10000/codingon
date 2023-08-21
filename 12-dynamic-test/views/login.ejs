@@ -13,12 +13,14 @@
           name="id"
           id="id"
           placeholder="ID를 적어주세요"
+          required
         /><br />
         <input
           type="password"
           name="password"
           id="password"
           placeholder="pw를 적어주세요"
+          required
         /><br />
         <button type="button" onclick="loginAjax()">로그인</button>
       </div>
@@ -30,40 +32,46 @@
     integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
     crossorigin="anonymous"
   ></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
     function loginAjax() {
       const form = document.forms['loginForm'];
       const result = document.querySelector('#content');
+      const idCheck = form.id.checkValidity();
+      const passwordCheck = form.password.checkValidity();
 
       const data = {
         id: form.id.value,
         password: form.password.value,
       };
 
-      $.ajax({
-        method: 'POST',
-        url: '/loginAjax',
-        data: data,
-        success: function (res) {
-          if (res.id === data.id && res.password === data.password) {
+      if (!idCheck) {
+        result.textContent = `아이디를 입력해주세요`;
+      } else if (!passwordCheck) {
+        result.textContent = '비밀번호를 입력해주세요';
+      } else {
+        axios({
+          method: 'POST',
+          url: '/loginAjax',
+          data: data,
+        }).then((res) => {
+          if (res.data.id === data.id && res.data.password === data.password) {
             console.log('로그인 성공');
-          } else if (res.id === data.id) {
-            if (res.password !== data.password) {
+          } else if (res.data.id === data.id) {
+            if (res.data.password !== data.password) {
               console.log('비밀번호가 맞지 않습니다.');
             }
-          } else if (res.password === data.password) {
-            if (res.id !== data.id) {
+          } else if (res.data.password === data.password) {
+            if (res.data.id !== data.id) {
               console.log('아이디가 맞지 않습니다');
             }
-          } else if (data.id === '' || data.password === '') {
-            console.log('빈 값이 있습니다');
-          } else if (res.id !== data.id) {
-            if (res.password !== data.password) {
+          } else if (res.data.id !== data.id) {
+            if (res.data.password !== data.password) {
               console.log('둘 다 맞지 않는 정보입니다');
             }
           }
-        },
-      });
+        });
+      }
     }
   </script>
 </html>

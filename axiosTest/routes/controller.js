@@ -18,7 +18,7 @@ const users = {
 };
 
 const input = {
-  getFetch: (req, res) => {
+  getAxios: (req, res) => {
     res.json(req.query);
   },
 
