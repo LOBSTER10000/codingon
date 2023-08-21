@@ -8,13 +8,13 @@
   <body>
     <h1>회원가입</h1>
     <div>
-      <form name="register">
-        <input type="text" placeholder="아이디" id="id" /><br />
-        <input type="password" placeholder="비밀번호" id="password" /><br />
-        <input type="text" placeholder="이름" id="name" /><br />
-        <input type="text" placeholder="나이" id="age" /><br />
-        <input type="file" name="userFiles" /><br />
-        <button type="button" onclick="getAxios()"></button>
+      <form action="/upload3" method="post" enctype="multipart/form-data">
+        <input type="text" placeholder="아이디" name="id" /><br />
+        <input type="password" placeholder="비밀번호" name="password" /><br />
+        <input type="text" placeholder="이름" name="name" /><br />
+        <input type="text" placeholder="나이" name="age" /><br />
+        <input type="file" name="userFiles" name="userFiles" /><br />
+        <input type="submit" value="회원가입" />
       </form>
     </div>
   </body>

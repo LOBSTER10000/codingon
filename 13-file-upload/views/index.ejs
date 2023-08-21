@@ -6,9 +6,26 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- single fileUpload -->
     <form action="/upload" method="post" enctype="multipart/form-data">
       <input type="file" name="userfile" /><br />
       <input type="text" name="title" /><br />
+      <button type="submit">등록하기</button>
+    </form>
+
+    <h2>여러개 파일 하나의 인풋으로 나타내기</h2>
+    <form action="/upload/array" method="post" enctype="multipart/form-data">
+      <input type="file" name="userFiles" multiple /> <br />
+      <input type="text" name="title" / ><br />
+      <button type="submit">등록하기</button>
+    </form>
+
+    <h2>여러개 파일 여러개 인풋으로 나타내기</h2>
+    <form action="/upload/fields" method="post" enctype="multipart/form-data">
+      <input type="file" name="userFiles1" /> <br />
+      <input type="text" name="title1" / ><br />
+      <input type="file" name="userFiles2" /> <br />
+      <input type="text" name="title2" / ><br />
       <button type="submit">등록하기</button>
     </form>
   </body>
