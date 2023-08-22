@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>파일 업로드 기능 처음부터 다시하기</h1>
+    <form action="/uploads" method="post" enctype="multipart/form-data">
+      <input type="text" name="title" />
+      <input type="file" name="userFile" />
+      <input type="submit" />
+    </form>
+
+    <h1>파일 업로드 기능 두번째 Array</h1>
+    <form action="/uploads/array" method="post" enctype="multipart/form-data">
+      <input type="text" name="title" />
+      <input type="file" name="userFiles" multiple />
+      <input type="submit" />
+    </form>
+
+    <h1>파일 업로드 기능 세번째 Fields</h1>
+    <form action="/uploads/fields" method="post" enctype="multipart/form-data">
+      <input type="text" name="title1" />
+      <input type="file" name="userFiles1" />
+      <input type="text" name="title2" />
+      <input type="file" name="userFiles2" />
+      <input type="submit" />
+    </form>
+
+    <h1>파일 업로드 기능 네번째 dynamic</h1>
+    <input type="file" name="dynamicFile" id="dynamicFile" /><br />
+    <button type="button" onclick="fileAxios()">생성</button><br />
+    <img src="" alt="" />
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    function fileAxios() {
+      const file = document.querySelector('#dynamicFile');
+      const img = document.querySelector('img');
+
+      const formData = new FormData();
+      formData.append('dynamicFile', file.files[0]);
+
+      axios({
+        method: 'post',
+        url: '/dynamicFile',
+        header: {
+          'content-type': 'multipart/form-data',
+        },
+        data: formData,
+      })
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+          console.log(res.data.path);
+          img.src = `uploads/${res.data.originalname}`;
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  </script>
+</html>
