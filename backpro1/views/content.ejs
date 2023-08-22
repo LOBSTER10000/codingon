@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일괄창</title>
+</head>
+<body>
+    <div>
+        <h1>내용</h1>
+        <table style="width: 100%;">
+            <tr>
+                <td style="border : 2px solid black; width: 20%">번호</td>
+                <td style="border : 2px solid black;"><%= data.identity %></td>
+            </tr>
+            <tr>
+                <td style="border : 2px solid black; width: 20%">글쓰기</td>
+                <td style="border : 2px solid black;"><%= data.writer %></td>
+            </tr>
+            <tr>
+                <td style="border : 2px solid black; width: 20%">제목</td>
+                <td style="border : 2px solid black;"><%= data.header %></td>
+            </tr>
+            <tr>
+                <td style="border : 2px solid black; width: 20%">내용</td>
+                <td style="border : 2px solid black;"><%= data.content %></td>
+            </tr>
+            <tr>
+                <td style="border : 2px solid black; width: 20%">시간</td>
+                <td style="border : 2px solid black;"><%= data.time %></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <button><a href="/modify" style="text-decoration: none;">수정하기</a></button>
+        <button><a href="/delete" style="text-decoration: none;">삭제하기</a></button>
+    </div>
+    <div>
+        <button><a href="/result" style="text-decoration: none;">목록</a></button>
+    </div>
+   
+</body>
+</html>

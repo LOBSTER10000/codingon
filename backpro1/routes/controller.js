@@ -15,13 +15,50 @@ connection.connect();
 const output = {
     board: (req,res)=>{
         res.render('board');
+    },
+
+    result : (req,res)=>{
+
+        const query = `SELECT * FROM mini ORDER BY identity DESC LIMIT 0, 10;`;
+
+        connection.query(query, function(error,result,fields){
+           if(error){
+               console.error(error);
+               return res.json({success: false, msg: 'DB 오류 발생'});
+           }
+           
+           return res.render('result', {
+               success: true, 
+               data : result,
+               msg : 'DB접속 성공',
+           })
+        })
+   },
+
+   content: (req, res) => {
+    const identity = req.query.identity;
+    const writer = req.query.writer;
+
+    const query = `SELECT * FROM mini WHERE identity = ${identity}`;
+
+    connection.query(query, function(error, result, fields){
+        if(error){
+            console.error(error);
+            return res.json({success: false, msg: 'DB 오류 발생'});
+        }
+        return res.render('content', {
+            data: result[0], // Assuming only one row is expected
+            success: true,
+            msg: 'DB 접속 성공',
+        });
+    });
     }
 }
 
 const input = {
     board : (req,res)=>{
         
-        const data = {
+        let data = {
            writer : connection.escape(req.body.writer),
            header :  connection.escape(req.body.header),
            content : connection.escape(req.body.content),
@@ -36,6 +73,7 @@ const input = {
             }
             return res.json({ success: true, msg: '정상적으로 들어갔습니다', insertedId: result.insertId, result : data});
         })
-    }
+    },
+
 }
 module.exports = {output, input};
