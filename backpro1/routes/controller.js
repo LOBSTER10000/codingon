@@ -37,7 +37,6 @@ const output = {
 
    content: (req, res) => {
     const identity = req.query.identity;
-    const writer = req.query.writer;
 
     const query = `SELECT * FROM mini WHERE identity = ${identity}`;
 
@@ -52,7 +51,7 @@ const output = {
             msg: 'DB 접속 성공',
         });
     });
-    }
+    },
 }
 
 const input = {
@@ -73,6 +72,19 @@ const input = {
             }
             return res.json({ success: true, msg: '정상적으로 들어갔습니다', insertedId: result.insertId, result : data});
         })
+    },
+
+    delete : (req,res)=>{
+        const identity = req.query.identity;
+        const query = `delete from mini where identity = ${identity}`;
+
+        connection.query(query, function(error,result,fields){
+            if(error){
+                console.error(error);
+                return res.json({success : false, msg: 'DB 오류 발생'});
+            }
+            return res.json({success: true, msg : '삭제에 성공하셨습니다'});
+        });
     },
 
 }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>일괄창</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div>
@@ -11,7 +12,7 @@
         <table style="width: 100%;">
             <tr>
                 <td style="border : 2px solid black; width: 20%">번호</td>
-                <td style="border : 2px solid black;"><%= data.identity %></td>
+                <td style="border : 2px solid black;" id="identity" data-identity="<%= data.identity %>"><%= data.identity %></td>
             </tr>
             <tr>
                 <td style="border : 2px solid black; width: 20%">글쓰기</td>
@@ -33,11 +34,37 @@
     </div>
     <div>
         <button><a href="/modify" style="text-decoration: none;">수정하기</a></button>
-        <button><a href="/delete" style="text-decoration: none;">삭제하기</a></button>
+        <button id="delete">삭제하기</button>
     </div>
     <div>
         <button><a href="/result" style="text-decoration: none;">목록</a></button>
     </div>
-   
+    
 </body>
+<script>
+    const delete1 = document.querySelector('#delete');
+
+    delete1.addEventListener('click', function(e){
+        const identityElement = document.querySelector('#identity');
+        const identity = identityElement.getAttribute('data-identity');
+        console.log(identity);
+        if(confirm('이 게시물을 삭제하시겠습니까?') === true){
+            
+            axios.get(`/delete?identity=${identity}`)
+            .then((res)=>{
+                const data = res.data;
+                if(data.success === true){
+                    alert('삭제에 성공하셨습니다');
+                    location.href = '/result';
+                } else {
+                    alert('삭제를 하지 않았습니다');
+                }
+            })
+            .catch((error)=>{
+                console.error(error);
+                alert('전송하는데 오류가 생겼습니다');
+            })
+        }
+    })
+</script>
 </html>
