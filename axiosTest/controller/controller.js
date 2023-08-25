@@ -1,3 +1,11 @@
+const user = require('../models/User.js');
+const user1 = user.split('//');
+const users = {
+  id: [user1[0], user1[3], user1[6]],
+  password: [user1[1], user1[4], user1[7]],
+  name: [user1[2], user1[5], user1[8]],
+};
+
 const output = {
   index: (req, res) => {
     res.render('index');
@@ -10,11 +18,10 @@ const output = {
   getInfo: (req, res) => {
     res.render('getInfo');
   },
-};
 
-const users = {
-  id: ['lobster', 'sean', 'sessac'],
-  password: ['1234', 'abcd', 'pokemon'],
+  getError: (req, res) => {
+    res.render('404');
+  },
 };
 
 const input = {
@@ -24,7 +31,6 @@ const input = {
 
   login: (req, res) => {
     console.log(req.body);
-
     const userId = req.body.id;
     const userPass = req.body.password;
 
@@ -48,4 +54,4 @@ const input = {
   },
 };
 
-module.exports = { output, input, users };
+module.exports = { output, input };
