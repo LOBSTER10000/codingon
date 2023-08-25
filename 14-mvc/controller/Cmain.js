@@ -1,4 +1,4 @@
-const comment = require('../models/Comment.js');
+const Comment = require('../models/Comment.js');
 
 const output = {
   index: (req, res) => {
@@ -8,18 +8,18 @@ const output = {
   comment: (req, res) => {
     console.log('req.params', req.params);
     const cmtId = parseInt(req.params.id);
-
+    const comment = Comment.getCommentAll()[cmtId - 1];
     if (!comment[cmtId - 1]) {
       res.render('404');
     }
-    if (isNaN(cmtId)) {
+    if (typeof cmtId != 'number') {
       res.render('404');
     }
-    return res.render('comment', { comment: comment[cmtId - 1] });
+    return res.render('comment', { comment: comment });
   },
 
   comments: (req, res) => {
-    res.render('comments', { comments: comment });
+    res.render('comments', { comments: Comment.getCommentAll() }); //댓글목록 배열
   },
 
   error: (req, res) => {
