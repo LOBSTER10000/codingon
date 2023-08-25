@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>업데이트</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <table>
+        <tr>
+          <td>
+            <input
+              type="text"
+              name="writer"
+              id="writer"
+              placeholder="작성자명"
+              value="<%=data.writer%>"
+              ;
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="text"
+              name="header"
+              id="header"
+              placeholder="제목"
+              value="<%=data.header%>"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <textarea
+              name="content"
+              id="content"
+              cols="30"
+              rows="10"
+              placeholder="내용"
+            >
+<%=data.content%></textarea
+            >
+          </td>
+        </tr>
+      </table>
+    </div>
+    <button type="button" onclick="update()">수정 버튼</button>
+  </body>
+  <script>
+    // function update(){
+    //     if(confirm('이 게시글을 수정하시겠습니까?')===true){
+    //         axios.patch('/')
+    //     }
+    // }
+  </script>
+</html>

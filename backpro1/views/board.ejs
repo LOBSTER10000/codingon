@@ -1,43 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>포스트 등록</title>
-</head>
-<body>
+  </head>
+  <body>
     <form action="/post" method="post" id="realForm">
-        <div>
-            <table>
-                <tr>
-                    <td><input type="text" name="writer" id="writer" placeholder="작성자명"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" name="header" id="header" placeholder="제목"></td>
-                </tr>
-                <tr>
-                    <td><textarea name="content" id="content" cols="30" rows="10" placeholder="내용"></textarea></td>
-                </tr>
-            </table>
-        </div>
-        <input type="submit" value="등록">
+      <div>
+        <table>
+          <tr>
+            <td>
+              <input
+                type="text"
+                name="writer"
+                id="writer"
+                placeholder="작성자명"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" name="header" id="header" placeholder="제목" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <textarea
+                name="content"
+                id="content"
+                cols="30"
+                rows="10"
+                placeholder="내용"
+              ></textarea>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <input type="submit" value="등록" />
     </form>
     <div id="result">
-        <div>
-            <p>여기는 작성자 구역입니다</p>
-            <p id="writerResult"></p>
-        </div>
-        <div>
-            <p>여기는 제목 구역입니다</p>
-            <p id="headerResult"></p>
-        </div>
-        <div>
-            <p>여기는 내용 구역입니다</p>
-            <p id="contentResult"></p>
-        </div>
+      <div>
+        <p>여기는 작성자 구역입니다</p>
+        <p id="writerResult"></p>
+      </div>
+      <div>
+        <p>여기는 제목 구역입니다</p>
+        <p id="headerResult"></p>
+      </div>
+      <div>
+        <p>여기는 내용 구역입니다</p>
+        <p id="contentResult"></p>
+      </div>
     </div>
     <div><a href="/result">결과창으로</a></div>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="js/board.js"></script>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="js/board.js"></script>
 </html>
