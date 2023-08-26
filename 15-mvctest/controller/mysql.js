@@ -1,6 +1,6 @@
 const mysql = require('mysql2');
 const conn = {
-  host: 'localhost',
+  host: '49.50.166.140',
   user: 'root',
   password: 'mysql',
   database: 'miniproject',
