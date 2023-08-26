@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>글 작성하기</title>
+    <style>
+      a {
+        text-decoration: none;
+        color: dodgerblue;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/post" method="post" id="realForm">
+      <div>
+        <table>
+          <tr>
+            <td>
+              <input
+                type="text"
+                name="writer"
+                id="writer"
+                placeholder="작성자명"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" name="header" id="header" placeholder="제목" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <textarea
+                name="content"
+                id="content"
+                cols="30"
+                rows="10"
+                placeholder="내용"
+              ></textarea>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <input type="submit" value="등록" />
+    </form>
+  </body>
+</html>

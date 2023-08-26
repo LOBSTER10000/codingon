@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>업데이트</title>
+  </head>
+  <body>
+    <form action="/update/<%=data.identity%>" method="post">
+      글 번호 :
+      <input
+        type="text"
+        name="identity"
+        value="<%=data.identity%>"
+        readonly
+        style="background: gray"
+      /><br />
+      작성자 :
+      <input
+        type="text"
+        name="writer"
+        value="<%=data.writer%>"
+        readonly
+        style="background: gray"
+      /><br />
+      제목 :
+      <input
+        type="text"
+        name="header"
+        value="<%=data.header%>"
+        readonly
+        style="background: gray"
+      /><br />
+      <textarea name="content" id="" cols="30" rows="10">
+<%=data.content%></textarea
+      ><br />
+      <input type="submit" value="업데이트" />
+    </form>
+  </body>
+</html>

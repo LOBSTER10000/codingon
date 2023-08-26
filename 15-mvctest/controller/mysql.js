@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const conn = {
   host: 'localhost',
   user: 'root',
@@ -8,8 +8,4 @@ const conn = {
 };
 const connection = mysql.createConnection(conn);
 
-const query = {
-  select: `select * from mini order by identity limit 10`,
-  // insert: `insert into mini value(${writer}, ${header}, ${content})`,
-};
-module.exports = { connection, query };
+module.exports = connection;

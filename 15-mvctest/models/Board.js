@@ -51,17 +51,101 @@ class Board {
     const mysql = require('../controller/mysql.js');
 
     return new Promise(function (resolve, reject) {
-      mysql.connection.query(
-        mysql.query.select,
+      mysql.query(
+        'select * from mini order by identity desc limit 10',
         function (error, result, fields) {
           if (error) {
             console.error(error);
-            reject(result);
+            return reject(result);
           }
           return resolve(result);
         }
       );
     });
+  }
+
+  async getFindOne(identity) {
+    const mysql = require('../controller/mysql.js');
+
+    return new Promise(function (resolve, reject) {
+      mysql.query(
+        'select * from mini where identity = ?',
+        [identity],
+        function (error, result, fields) {
+          if (error) {
+            console.error(error);
+            return reject(result);
+          }
+          return resolve(result[0]);
+        }
+      );
+    });
+  }
+
+  async postBoard() {
+    try {
+      const mysql = require('../controller/mysql.js');
+      mysql.connect();
+      return new Promise((resolve, reject) => {
+        mysql.query(
+          `INSERT INTO mini (writer, header, content, time) VALUES (?, ?, ?, NOW())`,
+          [this.writer, this.header, this.content],
+          (error, result, fields) => {
+            if (error) {
+              console.error(error);
+              return reject(error);
+            }
+            return resolve(result);
+          }
+        );
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async deleteBoard(identity) {
+    try {
+      const mysql = require('../controller/mysql.js');
+      mysql.connect();
+      return new Promise((resolve, reject) => {
+        mysql.query(
+          'delete from mini where identity = ?',
+          [identity],
+          (error, result, fields) => {
+            if (error) {
+              console.error(error);
+              return reject(result);
+            }
+            return resolve(result[0]);
+          }
+        );
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async updateBoard(newContent, identity) {
+    try {
+      const mysql = require('../controller/mysql.js');
+      mysql.connect();
+      return new Promise((resolve, reject) => {
+        mysql.query(
+          'update mini set content = ? where identity = ?',
+          [newContent, identity],
+          (error, result, fields) => {
+            if (error) {
+              console.error(error);
+              return reject(error); // error로 변경
+            }
+            return resolve(result);
+          }
+        );
+      });
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
 
