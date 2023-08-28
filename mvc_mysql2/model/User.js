@@ -69,11 +69,11 @@ class User {
     });
   }
 
-  deleteBoard(userid) {
+  deleteBoard(id) {
     return new Promise((resolve, reject) => {
       connection.query(
-        'delete from user where userid = ?',
-        [userid],
+        'delete from user where id = ?',
+        [id],
         (error, result) => {
           if (error) {
             console.error(error);
@@ -97,6 +97,21 @@ class User {
             return reject(result);
           }
           return resolve(result);
+        }
+      );
+    });
+  }
+
+  async updateUser(data){
+    return new Promise((resolve,reject)=>{
+      connection.query(
+        'update user set pw = ? , name = ? where id = ?', [data.pw, data.name, data.id], (error,result)=>{
+          if(error){
+            console.error('시작에러' + error)
+            return reject(result);
+          }
+          return resolve(result);
+
         }
       );
     });
