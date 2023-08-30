@@ -6,8 +6,19 @@ const output = {
   },
 
   visitor: (req, res) => {
-    console.log(Visitor.getVisitor());
-    res.render('visitor', { data: Visitor.getVisitor() });
+    Visitor.getVisitor((result) => {
+      console.log(result);
+      res.render('visitor', { data: result });
+    });
+  },
+
+  readVisitor: (req, res) => {
+    Visitor.readVisitor(req.params.id, (result) => {
+      console.log(result);
+      res.render('visitors', {
+        data: result,
+      });
+    });
   },
 
   error: (req, res) => {
@@ -15,4 +26,39 @@ const output = {
   },
 };
 
-module.exports = { output };
+const input = {
+  visitor: (req, res) => {
+    Visitor.postVisitor(req.body, (insertId) => {
+      console.log('제대로 찍혔나요?' + insertId);
+      return res.send({
+        id: insertId,
+        name: req.body.name,
+        comment: req.body.comment,
+      });
+    });
+  },
+
+  delete: (req, res) => {
+    Visitor.deleteVisitor(req.body.id, (result) => {
+      console.log(result);
+      return res.send({
+        data: result,
+      });
+    });
+  },
+
+  update: (req, res) => {
+    Visitor.updateVisitor(req.body, (result) => {
+      console.log(result);
+
+      return res.send({
+        data: result,
+        id: req.body.id,
+        name: req.body.name,
+        comment: req.body.comment,
+      });
+    });
+  },
+};
+
+module.exports = { output, input };

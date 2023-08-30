@@ -10,7 +10,7 @@
     <!-- TODO: 각 input의 value 값을 로그인 한 사람의 정보로 채우기 -->
     <form name="form_profile">
       <label for="userid">ID</label>
-      <input type="hidden" id="id" value="<%=data.id%>" />
+      <input type="hidden" id="id" name="id" value="<%=data.id%>" />
       <!-- readonly: userid는 수정 불가능 (조건임) -->
       <input
         id="userid"
@@ -43,30 +43,56 @@
     <script>
       // TODO: [Login] 버튼 클릭시 서버에 회원 정보 수정 요청하기
       // POST /user/profile/edit
-      function profileEdit() {}
+      function profileEdit() {
+        
+        if(confirm('수정하시겠습니까?')===true){
+          const form = document.forms['form_profile'];
+        const data = {
+          id : form.id.value,
+          name : form.name.value,
+          pw : form.pw.value,
+        } 
+          axios({
+          method : 'patch',
+          url : '/update',
+          data : data,
+        })
+        .then((res)=>{
+          console.log(res);
+          alert('수정되었습니다');
+        })
+        .catch((error)=>{
+          console.error(error);
+        })
+        }
+        
+      }
 
-      // TODO: [Login] 버튼 클릭시 서버에 회원 정보 삭제 요청하기
+      // TODO: [delete] 버튼 클릭시 서버에 회원 정보 삭제 요청하기
       // POST /user/profile/delete
       function profileDelete() {
-        const form = document.forms['form_profile'];
-        const data = {
-          userid: form.userid.value,
-          name: form.name.value,
-          pw: form.pw.value,
-        };
-        axios({
+        
+        if(confirm('삭제하시겠습니까?') ===true){
+          const form = document.forms['form_profile'];
+          const data = {
+            id : form.id.value,
+            name : form.name.value,
+            pw : form.pw.value,
+          }
+          axios({
           method: 'delete',
           url: '/delete',
-          data: data,
+          data : data,
         })
           .then((res) => {
-            console.loe(res);
             alert('삭제되셨습니다.');
             location.href = '/';
           })
           .catch((err) => {
             console.error('삭제에 실패했습니다');
           });
+        }
+      
       }
     </script>
   </body>
