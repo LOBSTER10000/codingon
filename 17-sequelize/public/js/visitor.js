@@ -70,11 +70,9 @@ function updateVisitor(id) {
     .then((res) => {
       console.log(res);
       console.log(res.data);
-      console.log('허허' + res.data.result.name);
-      console.log('하하' + res.data.result.comment);
       const form = document.forms['visitor-form'];
-      form.name.value = res.data.result.name;
-      form.comment.value = res.data.result.comment;
+      form.name.value = res.data.name;
+      form.comment.value = res.data.comment;
     })
     .catch((err) => {
       console.error(err);

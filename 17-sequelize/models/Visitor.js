@@ -1,87 +1,33 @@
-const mysql = require('mysql2');
-const conn = {
-  host: 'localhost',
-  user: 'root',
-  password: 'mysql',
-  database: 'sesac',
-  port: 3306,
-};
+// visitor 모델 정의
 
-const connection = mysql.createConnection(conn);
-
-exports.getVisitor = (cb) => {
-  connection.query(
-    'select * from visitor order by id desc',
-    (error, result) => {
-      if (error) {
-        console.error(error);
-      }
-      console.log(result);
-      cb(result);
+const Visitor = (Sequelize, DataTypes) => {
+  // Sequelize: model/index.js에서 sequelize
+  // DataTypes : mode/index.js에서 sequelize
+  const model = Sequelize.define(
+    'visitor',
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      name: {
+        type: DataTypes.STRING(10),
+        allowNull: false,
+      },
+      comment: {
+        type: DataTypes.TEXT('medium'),
+      },
+    },
+    {
+      tableName: 'visitor', //실제 테이블명
+      freezeTableName: true, // 복수 중복 불가
+      timestamps: false,
     }
   );
+
+  return model;
 };
 
-exports.postVisitor = (data, cb) => {
-  connection.query(
-    `insert into visitor(name, comment) values("${data.name}","${data.comment}")`,
-    (error, result) => {
-      if (error) {
-        console.error(error);
-      }
-      console.log(result);
-      return cb(result.insertId);
-    }
-  );
-};
-
-exports.readVisitor = (id, cb) => {
-  connection.query(
-    `select * from visitor where id = ${id}`,
-    (error, result) => {
-      if (error) {
-        console.error(error);
-      }
-
-      return cb(result[0]);
-    }
-  );
-};
-
-exports.deleteVisitor = (id, cb) => {
-  connection.query(`delete from visitor where id = ${id}`, (error, result) => {
-    if (error) {
-      console.error(error);
-    }
-
-    return cb(result);
-  });
-};
-
-exports.updateVisitor = (data, cb) => {
-  connection.query(
-    `update visitor set name = '${data.name}', comment = '${data.comment}' where id = ${data.id}`,
-    (error, result) => {
-      if (error) {
-        console.error(error);
-      }
-      console.log(result);
-      return cb();
-    }
-  );
-};
-
-exports.selectVisitor = (id, cb) => {
-  console.log('model id >> ', id);
-  connection.query(
-    `select * from visitor where id = ${id}`,
-    (error, result) => {
-      if (error) {
-        console.error(error);
-      }
-
-      console.log(result);
-      return cb(result);
-    }
-  );
-};
+module.exports = Visitor;
