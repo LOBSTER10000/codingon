@@ -60,11 +60,26 @@ exports.deleteVisitor = (id, cb) => {
 
 exports.updateVisitor = (data, cb) => {
   connection.query(
-    `update visitor set name = ${data.name}, comment = ${data.comment} where id = ${data.id}`,
+    `update visitor set name = '${data.name}', comment = '${data.comment}' where id = ${data.id}`,
     (error, result) => {
       if (error) {
         console.error(error);
       }
+      console.log(result);
+      return cb();
+    }
+  );
+};
+
+exports.selectVisitor = (id, cb) => {
+  console.log('model id >> ', id);
+  connection.query(
+    `select * from visitor where id = ${id}`,
+    (error, result) => {
+      if (error) {
+        console.error(error);
+      }
+
       console.log(result);
       return cb(result);
     }

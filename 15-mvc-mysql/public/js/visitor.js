@@ -24,7 +24,7 @@ function createVisitor() {
       <td><a href="/visitor/25">${res.data.name}</a></td>
       <td>${res.data.comment}</td>
       <td>
-        <button type="button">수정</button>
+        <button type="button" onclick="updateVisitor('<%=d.id%>')">수정</button>
       </td>
       <td>
         <button type="button" onclick="deleteVisitor(this, '<%=d.id%>')">삭제</button>
@@ -62,20 +62,68 @@ function deleteVisitor(obj, id) {
   }
 }
 
-function updateVisitor(obj, id) {
-  const name = document.querySelector('#name').value;
-  const comment = document.querySelector('#comment').value;
-
+function updateVisitor(id) {
   axios({
     method: 'get',
-    url: `/visitor/${id}`,
-    data: id,
+    url: `/visitorId/${id}`,
   })
     .then((res) => {
       console.log(res);
       console.log(res.data);
+      console.log('허허' + res.data.result.name);
+      console.log('하하' + res.data.result.comment);
+      const form = document.forms['visitor-form'];
+      form.name.value = res.data.result.name;
+      form.comment.value = res.data.result.comment;
     })
-    .catch((error) => {
-      console.error(error);
+    .catch((err) => {
+      console.error(err);
     });
+
+  const btns = `<button type="button" onclick="editVisitor(${id})">변경</button>
+     <button type="button" onclick="cancelVisitor()">취소</button>
+    `;
+  buttonGroup.innerHTML = btns;
+}
+
+function editVisitor(id) {
+  const form = document.forms['visitor-form'];
+  if (confirm('실제로 변경하시겠습니까?') === true) {
+    axios({
+      method: 'patch',
+      url: `/visitor/edit`,
+      data: {
+        id,
+        name: form.name.value,
+        comment: form.comment.value,
+      },
+    }).then((res) => {
+      console.log(res);
+      console.log(res.data);
+      const updated = res.data.isUpdated;
+
+      if (updated) {
+        alert('수정완료');
+      }
+
+      const tr = document.querySelector(`#tr_${id}`).children;
+      tr[1].textContent = form.name.value;
+      tr[2].textContent = form.comment.value;
+
+      form.name.value = '';
+      form.comment.value = '';
+    });
+  }
+}
+
+function cancelVisitor() {
+  const form = document.forms['visitor-form'];
+  form.name.value = '';
+  form.comment.value = '';
+
+  const btns = `
+  <button type="button" onclick="createVisitor()">등록</button>
+  `;
+
+  buttonGroup.innerHTML = btns;
 }

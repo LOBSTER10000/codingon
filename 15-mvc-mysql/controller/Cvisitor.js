@@ -47,16 +47,21 @@ const input = {
     });
   },
 
-  update: (req, res) => {
-    Visitor.updateVisitor(req.body, (result) => {
-      console.log(result);
-
-      return res.send({
-        data: result,
-        id: req.body.id,
-        name: req.body.name,
-        comment: req.body.comment,
+  update1: (req, res) => {
+    console.log(req.params.id);
+    Visitor.selectVisitor(req.params.id, (result) => {
+      console.log(result[0]);
+      res.send({
+        result: result[0],
       });
+    });
+  },
+
+  update2: (req, res) => {
+    console.log(req.body);
+    Visitor.updateVisitor(req.body, () => {
+      console.log('결과값 변경');
+      res.send({ isUpdated: true });
     });
   },
 };
