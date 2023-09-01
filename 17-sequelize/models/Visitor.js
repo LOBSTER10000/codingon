@@ -23,7 +23,7 @@ const Visitor = (Sequelize, DataTypes) => {
     {
       tableName: 'visitor', //실제 테이블명
       freezeTableName: true, // 복수 중복 불가
-      timestamps: false,
+      timestamps: true,
     }
   );
 

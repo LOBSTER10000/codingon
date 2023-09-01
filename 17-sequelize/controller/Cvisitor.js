@@ -14,7 +14,9 @@ const output = {
     // [before 코드]
 
     //[after]
-    const result = await Visitor.findAll();
+    const result = await Visitor.findAll({
+      order: [['id', 'desc']],
+    });
     console.log(result);
     res.render('visitor', { data: result });
   },

@@ -29,6 +29,8 @@ function createVisitor() {
       <td>
         <button type="button" onclick="deleteVisitor(this, '<%=d.id%>')">삭제</button>
       </td>
+      <td>${res.data.createdAt}</td>
+      <td>${res.data.updatedAt}</td>
         </tr>
       `;
 
