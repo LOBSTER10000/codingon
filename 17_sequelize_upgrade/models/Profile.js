@@ -21,3 +21,5 @@ const ProfileModel = (sequelize, DataTypes) => {
 };
 
 module.exports = ProfileModel;
+
+

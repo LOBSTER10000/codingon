@@ -21,3 +21,5 @@ const playerModel = (sequelize, DataTypes) => {
 };
 
 module.exports = playerModel;
+
+
