@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>기본 시퀄라이즈 시도하기</title>
+  </head>
+  <body>
+    <h1>시퀄라이즈에서 회원 데이터 값 가져오기</h1>
+
+    <table border="1" collapse="0">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>아이디</th>
+          <th>이름</th>
+          <th>패스워드</th>
+        </tr>
+      </thead>
+      <% for(let i=0; i<data.length; i++) { %>
+      <tbody>
+        <tr>
+          <th><%=data[i].identity%></th>
+          <th><%=data[i].userId%></th>
+          <th><a href="/post/<%=data[i].identity%>"><%=data[i].userName%></a></th>
+          <th><%=data[i].userPass%></th>
+          
+        </tr>
+      </tbody>
+      <% } %>
+    </table>
+    
+    <p>글 작성</p>
+    <a href="/post">글 작성하기</a>
+    <a href="/login">로그인 하러가기</a>
+    <a href="/board">게시판으로 가기</a>
+  </body>
+</html>

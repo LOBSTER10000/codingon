@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시판</title>
+  </head>
+  <body>
+    <table border="1" collapse="0">
+      <thead>
+        <tr>
+          <th>글번호</th>
+          <th>글제목</th>
+          <th>작성자</th>
+          <th>작성시간</th>
+        </tr>
+      </thead>
+      <% for(let i = 0; i < data.length; i++){ %>
+      <tbody>
+        <tr>
+          <td><%= data[i].boardNo %></td>
+          <td><%= data[i].header %></td>
+          <td><%= data[i].userId %></td>
+          <td><%= data[i].createdAt %></td>
+        </tr>
+      </tbody>
+      <% } %>
+    </table>
+    <a href="/post2">글 작성하기</a>
+  </body>
+</html>

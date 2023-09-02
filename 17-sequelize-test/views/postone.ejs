@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <form name="resultForm">
+      <input
+        type="text"
+        readonly
+        style="background: gray"
+        name="identity"
+        value="<%= data.identity%>"
+      /><br />
+      <input
+        type="text"
+        readonly
+        style="background: gray"
+        name="userId"
+        value="<%= data.userId%>"
+      /><br />
+      <input
+        type="text"
+        readonly
+        style="background: gray"
+        name="userName"
+        value="<%= data.userName%>"
+      /><br />
+      <input
+        type="text"
+        name="userPass"
+        value="<%= data.userPass%>"
+        id="userPass"
+      /><br />
+
+      <button type="button" onclick="updateData()">
+        비밀번호 업데이트하기
+      </button>
+
+      <button type="button" onclick="deleteData()">삭제하기</button>
+    </form>
+  </body>
+  <script>
+    const form = document.forms['resultForm'];
+
+    function deleteData() {
+      const data = {
+        identity: form.identity.value,
+      };
+      if (confirm('이 정보들을 삭제하시겠습니까?') === true) {
+        axios({
+          method: 'delete',
+          url: '/delete',
+          data: data,
+        })
+          .then((res) => {
+            console.log(res);
+            alert('삭제 완료했습니다');
+            location.href = '/';
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
+    }
+
+    function updateData() {
+      const data = {
+        userPass: form.userPass.value,
+        identity: form.identity.value,
+      };
+      if (confirm('비밀번호를 변경하시겠습니까?') === true) {
+        axios({
+          method: 'patch',
+          url: '/update',
+          data: data,
+        })
+          .then((res) => {
+            console.log(res);
+            console.log(res.data);
+            alert('변경되셨습니다');
+            location.href = '/';
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
+    }
+  </script>
+</html>
