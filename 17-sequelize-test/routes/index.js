@@ -6,7 +6,7 @@ router.get('/post', controller.output.post);
 router.get('/post/:identity', controller.input.selectOne);
 router.get('/login', controller.output.login);
 router.get('/board', controller.output.board);
-
+router.get('/logout', controller.input.logout);
 router.patch('/update', controller.input.update);
 
 router.post('/login', controller.input.login);

@@ -2,12 +2,15 @@ const { Visitor, Board } = require('../models');
 
 const output = {
   index: async (req, res) => {
+    console.log('유저값 존재' + req.session.userId);
     const data = await Visitor.findAll({
       order: [['identity', 'desc']],
     });
     console.log(data);
     return res.render('index', {
       data: data,
+      userId: req.session.userId,
+      userName: req.session.userName,
     });
   },
 
@@ -91,12 +94,15 @@ const input = {
       },
     });
     console.log(result);
-    console.log('아이디 정보값 ' + idResult);
-    console.log('패스워드 정보값' + passResult);
+    console.log(idResult);
+    console.log(passResult);
     if (result) {
       console.log('정상적으로 정보값 있음');
-      return res.send(result, {
+      req.session.userId = result.userId;
+      req.session.userName = result.userName;
+      return res.send({
         success: true,
+        result: result,
       });
     } else {
       if (idResult === null && passResult === null) {
@@ -132,6 +138,18 @@ const input = {
     );
     console.log(result);
     res.send(result);
+  },
+
+  logout: (req, res) => {
+    req.session.destroy((err) => {
+      if (err) {
+        console.log(err);
+        res.send('로그아웃에 실패');
+      } else {
+        res.clearCookie('mySessions');
+        res.send('로그아웃');
+      }
+    });
   },
 };
 module.exports = {

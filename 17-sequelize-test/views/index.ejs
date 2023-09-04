@@ -6,8 +6,12 @@
     <title>기본 시퀄라이즈 시도하기</title>
   </head>
   <body>
+    <% if(userId && userName){%> 
+      <div style="color: dodgerblue;">안녕하세요 <%=userName%>님 로그인을 축하드립니다</div>
+      <button type="button"><a href="/logout">로그아웃</a></button>
+        <%}%>
     <h1>시퀄라이즈에서 회원 데이터 값 가져오기</h1>
-
+    
     <table border="1" collapse="0">
       <thead>
         <tr>
