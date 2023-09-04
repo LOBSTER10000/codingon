@@ -6,6 +6,10 @@
     <title>기본 시퀄라이즈 시도하기</title>
   </head>
   <body>
+    <% if(!userId && !userName){%> 
+      <div style="color: red;">로그인을 진행해주시기 바랍니다</div>
+      <button type="button"><a href="/login">로그인</a></button>
+        <%}%>
     <% if(userId && userName){%> 
       <div style="color: dodgerblue;">안녕하세요 <%=userName%>님 로그인을 축하드립니다</div>
       <button type="button"><a href="/logout">로그아웃</a></button>

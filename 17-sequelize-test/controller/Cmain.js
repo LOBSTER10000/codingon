@@ -147,7 +147,7 @@ const input = {
         res.send('로그아웃에 실패');
       } else {
         res.clearCookie('mySessions');
-        res.send('로그아웃');
+        res.redirect('/');
       }
     });
   },
