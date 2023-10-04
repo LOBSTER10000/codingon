@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('include', {title: 'Login'}) %>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>회원 등록하기</h1>
+
+    <div>
+      <form name="resultForm">
+        <input
+          type="text"
+          placeholder="아이디를 입력하세요"
+          id="userid"
+          name="userid"
+        /><br />
+        <input
+          type="password"
+          placeholder="비밀번호를 입력하세요"
+          name="pw"
+          id="pw"
+        /><br />
+        <input
+          type="text"
+          placeholder="이름을 입력하세요"
+          name="name"
+          id="name"
+        /><br />
+        <button type="button" onclick="postUser()">회원등록하기</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    function postUser() {
+      const form = document.forms['resultForm'];
+      const data = {
+        userid: form.userid.value,
+        pw: form.pw.value,
+        name: form.name.value,
+      };
+      axios({
+        method: 'post',
+        url: '/post',
+        data: data,
+      })
+        .then((res) => {
+          console.log(res.data);
+          alert('회원등록되셨습니다.');
+          location.href = '/';
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  </script>
+</html>

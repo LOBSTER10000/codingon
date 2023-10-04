@@ -1,6 +1,8 @@
 const express = require('express');
 const session = require('express-session');
 const app = express();
+const env = require('dotenv');
+env.config();
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -10,7 +12,7 @@ app.use(express.static('public'));
 // express-session 미들웨어에 의해 암호화된 쿠키내용(개발자 도구 application 탭에서 %3A 뒷 부분 ~)
 app.use(
   session({
-    secret: 'secretKey', // 안전하게 쿠키를 전송하기 위한 쿠키 서명 값
+    secret: process.env.SESSION_KEY, // 안전하게 쿠키를 전송하기 위한 쿠키 서명 값
     resave: false, // 세션에 수정사항이 생기지 않더라도 다시 저장할 것인가?
     saveUninitialized: true, // 세션에 저장할 내역이 없더라도 처음부터 세션을 생성할지 설정
     cookie: {

@@ -141,3 +141,5 @@ console.log(result); // 15
 const arr_1 = [1, 2, 3];
 const arr_2 = [3, 4, 5];
 console.log(arr_1.concat(arr_2));
+//spread 방식
+console.log(...arr_1, ...arr_2); // 둘이 동일한 결과

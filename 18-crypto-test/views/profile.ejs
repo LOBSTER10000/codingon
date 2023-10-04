@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>업데이트 변경</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>업데이트 변경하기</h1>
+    <form name="resultForm">
+      <span>아이디: </span
+      ><input type="text" value="<%=data.userid %>" readonly /><br />
+      <span>패스워드 : </span
+      ><input type="password" value="<%=data.pw %>" readonly /><br />
+      <span>이름: </span><input type="text" value="<%=data.name %>" /><br />
+      <button type="button" onclick="update()">업데이트하기</button>
+    </form>
+  </body>
+  <script>
+    function update() {
+      if (confirm('변경하시겠습니까?') === true) {
+        const form = document.forms['resultForm'];
+        const data = {
+          name: form.name.value,
+        };
+        axios({
+          method: 'patch',
+          url: '/profiles',
+          data: data,
+        })
+          .then((res) => {
+            console.log(res);
+            alert('변경되셨습니다');
+            location.href = '/';
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
+    }
+  </script>
+</html>
