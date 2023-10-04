@@ -133,3 +133,11 @@ const result = numbers.reduce((accumulator, currentValue) => {
 console.log(result); // 15
 
 //연산을 이용할 때 많이 사용
+
+////////////////////////////
+// concat()
+// 배열을 합칠때 사용가능한 메서드
+
+const arr_1 = [1, 2, 3];
+const arr_2 = [3, 4, 5];
+console.log(arr_1.concat(arr_2));
