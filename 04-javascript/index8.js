@@ -116,3 +116,20 @@ console.log(parseInt(Math.random() * 100) + 1);
 
 //20 ~22
 console.log(parseInt(Math.random() * 3) + 20);
+
+////////////////
+// reduce()
+// : 배열의 각 요소에 대해서 주어진 리듀서(reducer) 함수를 실행하고, 하나의 결과값 반환
+
+// reduce(acc,cur)
+// - acc : 누적되는 값
+// - cur : 현재 요소
+
+const numbers = [1, 2, 3, 4, 5];
+const initialValue = 100;
+const result = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, initialValue); // 기본 누적값인 initialValue에서 계산
+console.log(result); // 15
+
+//연산을 이용할 때 많이 사용
