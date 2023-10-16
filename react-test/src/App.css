@@ -1,0 +1,63 @@
+span {
+  text-decoration: underline;
+}
+
+.test {
+  background-color: skyblue;
+  color: orange;
+  text-align: center;
+  font-size: 50px;
+  margin: 50px 50px 50px 50px;
+}
+
+.input {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.realDiv {
+  display: flex;
+}
+
+.red {
+  background-color: red;
+  height: 50px;
+  width: 100px;
+}
+
+.orange {
+  background-color: orange;
+  height: 100px;
+  width: 100px;
+}
+
+.yellow {
+  background-color: yellow;
+  height: 150px;
+  width: 100px;
+}
+
+.green {
+  background-color: green;
+  height: 200px;
+  width: 100px;
+}
+
+.blue {
+  background-color: blue;
+  height: 250px;
+  width: 100px;
+}
+
+.navy {
+  background-color: navy;
+  height: 300px;
+  width: 100px;
+}
+
+.purple {
+  background-color: purple;
+  height: 350px;
+  width: 100px;
+}
