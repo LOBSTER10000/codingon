@@ -1,0 +1,8 @@
+.product {
+  background-color: skyblue;
+  height: 100vh;
+}
+
+.product > h2 {
+  margin-top: 0px;
+}

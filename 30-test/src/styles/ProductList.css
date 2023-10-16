@@ -1,0 +1,18 @@
+.productList {
+  margin: 30px auto 0 auto;
+  width: 80vw;
+  background-color: white;
+}
+
+ul > li {
+  color: black;
+}
+
+.productList > div > a {
+  text-decoration: none;
+}
+
+.productList > div > a:hover {
+  cursor: pointer;
+  font-weight: 700;
+}
