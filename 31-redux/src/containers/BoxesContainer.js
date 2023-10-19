@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Box1, Box2, Box3, Box4 } from '../App4';
+import { Box1, Box2, Box3, Box4 } from '../App4.js';
+import { plus, minus } from '../styles/store/counterReducer.js';
 
 export const Box1Container = () => {
   return <Box1 />;
@@ -17,5 +18,11 @@ export const Box4Container = () => {
   const number = useSelector((state) => state.counter.number);
   const dispatch = useDispatch();
 
-  return <Box4 />;
+  return (
+    <Box4
+      number={number}
+      onPlus={() => dispatch(plus())}
+      onMinus={() => dispatch(minus())}
+    />
+  );
 };

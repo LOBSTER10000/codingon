@@ -6,7 +6,7 @@ import {
   Box2Container,
   Box3Container,
   Box4Container,
-} from './styles/containers/BoxesContainer';
+} from './containers/BoxesContainer';
 
 function App() {
   const number = useSelector((state) => state.counter.number);
@@ -47,16 +47,16 @@ export const Box3 = () => {
   );
 };
 
-export const Box4 = () => {
-  const number = useSelector((state) => state.counter.number);
+export const Box4 = ({ number, onPlus, onMinus }) => {
+  // const number = useSelector((state) => state.counter.number);
   const isVisible = useSelector((state) => state.isVisible);
   const dispatch = useDispatch();
   return (
     <div className="Box">
       <h2>Box4 : {number}</h2>
       <h2>isVisible : {isVisible ? '참' : '거짓'}</h2>
-      <button onClick={() => dispatch({ type: 'PLUS' })}>plus</button>
-      <button onClick={() => dispatch({ type: 'MINUS' })}>minus</button>
+      <button onClick={onPlus}>plus</button>
+      <button onClick={onMinus}>minus</button>
 
       <button onClick={() => dispatch({ type: 'CHANGE' })}>change</button>
     </div>
