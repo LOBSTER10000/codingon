@@ -12,6 +12,7 @@ const initialState = {
 
 // reducer : 액션의 타입에 따라 변화하는 함수
 const counterReducer = (state = initialState, action) => {
+    // action 객체 : {type : }
   switch (action.type) {
     case PLUS:
       return { number: state.number + 1 };
