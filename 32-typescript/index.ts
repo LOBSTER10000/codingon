@@ -326,7 +326,57 @@ console.log(sums105('가', '나'));
 console.log(sums105(1, 2));
 // console.log(sums105(1,'얏호'));//error
 
+function printSome<T>(x: T, y: T): void {
+  console.log(x, y);
+}
+
+printSome<string>('hi', 'hello');
+printSome<number>(100, 200);
+printSome<boolean[]>([true, false], [false, false]);
+
+function printSome2<T, U>(x: T, y: U): void {
+  console.log(x, y);
+}
+printSome2<string, number>('1', 1);
+
+interface Phone<T> {
+  company: string;
+  createdAt: Date;
+  option: T;
+}
+
+type iphoneOption = {
+  color: string;
+  storage: number;
+};
+
+const iphone15: Phone<iphoneOption> = {
+  company: 'apple',
+  createdAt: new Date('2023-10-05'),
+  option: {
+    color: 'black',
+    storage: 128,
+  },
+};
+console.log(iphone15);
+
+type galaxyOption = {
+  color: string;
+  isBuz: boolean;
+};
+
+const galaxy23: Phone<galaxyOption> = {
+  company: 'samsung',
+  createdAt: new Date('2023-10-05'),
+  option: {
+    color: 'blue',
+    isBuz: true,
+  },
+};
+console.log(galaxy23);
+
 //실습3
+
 function sum1(a: number, b: number): number {
   return a + b;
 }
@@ -349,6 +399,7 @@ console.log(sum2(1, 2, 3, 4, 10));
 // = 생성 시점에 타입을 명시
 // => "재사용성 증가"
 // ==> 타입을 변수처럼 사용한다!!
+// <T> 형태로 주로 사용
 
 function arrLength2<T>(arr: T[]): number {
   return arr.length;
@@ -368,10 +419,10 @@ console.log(arrElement<string>(['a'], 0));
 
 function arrElement2<T>(arr: T[], index: number): any {
   if (index < arr.length) {
-    return `${arr[index]}와 타입은 : ${typeof arr[index]}`;
+    return `arr[index]는 ${arr[index]}이고 타입은 : ${typeof arr[index]}`;
   } else {
     return false;
   }
 }
 
-console.log(arrElement2<string>(['a'], 1));
+console.log(arrElement2<string>(['a', 'b', 'c'], 1));
