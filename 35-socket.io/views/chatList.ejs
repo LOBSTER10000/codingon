@@ -127,12 +127,11 @@
 
         socket.on('updateNicks', (nickStore) => {
           let options = `<option values="all">전체</option>`;
-          document.querySelector('#nick-list').innerHTML = options;
-          for (let store in nickStore) {
-            let options = `<option values="${store}">
-                ${nickStore[store]}</option>`;
-            document.querySelector('#nick-list').innerHTML = options;
+
+          for (let key in nickStore) {
+            options += `<option value="${key}">${nickStore[key]}</option>`;
           }
+          document.querySelector('#nick-list').innerHTML = options;
         });
       }
 
