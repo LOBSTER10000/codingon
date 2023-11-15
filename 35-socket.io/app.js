@@ -40,6 +40,11 @@ io.on('connection', function (socket) {
     }
   });
 
+  socket.on('message', (data) => {
+    console.log('메세지', data);
+    socket.broadcast.emit('sMessage', data);
+  });
+
   socket.on('disconnect', () => {
     console.log('접속 끊김');
     io.emit('notice', `${nickStore[socket.id]}님이 퇴장하셨습니다`);

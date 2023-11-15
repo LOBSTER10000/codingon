@@ -19,8 +19,8 @@
 
       #me > div {
         background: yellow;
-        float: right;
-        margin-right: 20px;
+        margin-right: 30px;
+        margin-left: 80%;
         font-size: 2vw;
       }
 
@@ -30,9 +30,9 @@
       }
       #other > div {
         background: white;
-        margin-left: 20px;
+        margin-right: 80%;
+        margin-left: 30px;
         font-size: 2vw;
-        float: left;
       }
 
       #other {
@@ -97,7 +97,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
       const container = document.querySelector('#container');
-      const contents = document.querySelector('#contents');
+      const message = document.querySelector('#message');
       const me = document.querySelector('#me');
       const other = document.querySelector('#other');
       let myNick;
@@ -137,7 +137,29 @@
 
       //전송 방법
       function send() {
-        contents.value = '';
+        let nick = document.querySelector('#nickname').value;
+        data = `${nick} : ${message.value}`;
+
+        const me = container.insertAdjacentHTML(
+          'beforeend',
+          `<div id="me">
+              <div>${nick} : ${message.value}</div></div>`
+        );
+        const pElement = container.querySelector('div:last-child');
+        pElement.setAttribute('id', 'me');
+        socket.emit('message', data);
+
+        socket.on('sMessage', (data) => {
+          console.log('데이터값', data);
+          const others = container.insertAdjacentHTML(
+            'beforeend',
+            `<div id="other">
+              <div>${data}</div></div>`
+          );
+          const pElement = container.querySelector('div:last-child');
+          pElement.setAttribute('id', 'other');
+        });
+        message.value = '';
       }
     </script>
   </body>
