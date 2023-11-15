@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>채팅창</title>
+    <style>
+      #container {
+        background-color: skyblue;
+        height: 80vh;
+        overflow-y: scroll;
+      }
+
+      #reader1 {
+        position: relative;
+        text-align: center;
+        font-size: 3vw;
+      }
+
+      #me > div {
+        background: yellow;
+        float: right;
+        margin-right: 20px;
+        font-size: 2vw;
+      }
+
+      #me {
+        position: relative;
+        margin-top: 5vh;
+      }
+      #other > div {
+        background: white;
+        margin-left: 20px;
+        font-size: 2vw;
+        float: left;
+      }
+
+      #other {
+        position: relative;
+        margin-top: 5vh;
+      }
+
+      #transport {
+        text-align: center;
+        background-color: skyblue;
+      }
+
+      #transport > input {
+        width: 80%;
+        height: 70px;
+        border: 2px solid black;
+        font-size: 30px;
+      }
+
+      #transport > button {
+        width: 150px;
+        height: 70px;
+        border: 2px solid black;
+        background-color: white;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="entry-box">
+      <input
+        type="text"
+        id="nickname"
+        placeholder="닉네임"
+        autofocus
+        onkeypress="if(window.event.keyCode==13){join()}"
+      />
+      <button type="button" onclick="join();">입장</button>
+    </div>
+    <div id="container">
+      <div id="me">
+        <div></div>
+      </div>
+      <br />
+      <div id="other">
+        <div></div>
+      </div>
+    </div>
+    <div id="transport">
+      <!-- 메세지 전송 영역 -->
+      <select id="nick-list"></select
+      >에게
+      <input
+        type="text"
+        id="message"
+        onkeypress="if(window.event.keyCode==13){send()}"
+        placeholder="아름다운 메세지를 남겨주십시오"
+      />
+      <button type="button" onclick="send();">전송</button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const container = document.querySelector('#container');
+      const contents = document.querySelector('#contents');
+      const me = document.querySelector('#me');
+      const other = document.querySelector('#other');
+      let myNick;
+      const socket = io();
+
+      //입장 방법
+      function join() {
+        // 닉네임 설정
+        socket.emit('setNick', document.querySelector('#nickname').value);
+
+        socket.on('error', (msg) => {
+          alert(msg);
+        });
+        socket.on('notice', (msg) => {
+          const reader = container.insertAdjacentHTML(
+            'beforeend',
+            `<p>${msg}</p>`
+          );
+          const pElement = container.querySelector('p:last-child');
+          pElement.setAttribute('id', 'reader1');
+        });
+        socket.on('success', (nick) => {
+          myNick = nick;
+          document.querySelector('#nickname').disabled = true; //인풋 비활성화
+          document.querySelector('.entry-box > button').disabled = true; // 인풋 비활성화
+        });
+
+        socket.on('updateNicks', (nickStore) => {
+          let options = `<option values="all">전체</option>`;
+          document.querySelector('#nick-list').innerHTML = options;
+          for (let store in nickStore) {
+            let options = `<option values="${store}">
+                ${nickStore[store]}</option>`;
+            document.querySelector('#nick-list').innerHTML = options;
+          }
+        });
+      }
+
+      //전송 방법
+      function send() {
+        contents.value = '';
+      }
+    </script>
+  </body>
+</html>
